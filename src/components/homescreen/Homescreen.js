@@ -10,6 +10,7 @@ import videoSrc from '../videos/gym.mp4';
 import DropdownItemTagsExample from '../filtercity/Filtercity';
 import '../filtercity/Filtercity.css';
 import ShapeExample from '../gyms/Gyms';
+import RateExample from '../gymrate/gymRate';
 
 function NavScrollExample() {
     return (
@@ -17,7 +18,7 @@ function NavScrollExample() {
 
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+                <Navbar.Brand href="#">LOGOOOOOOO</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -69,6 +70,22 @@ function NavScrollExample() {
         <div>
             <ShapeExample />
         </div>
+
+        <div>
+        <p> Hapsir bosh              bosh</p>
+        </div>
+
+        <div>
+                <div className='element'>
+            <RateExample />
+                </div>
+        </div>
+         
+         <div className ='footer'>
+            <p>[rooob
+                
+            </p>
+         </div>
 
         </>
 
