@@ -4,7 +4,12 @@
   justify-content: center;
 }
 
-.btn-primary {
-  background-color: #0abe0a;
-  color: #0abe0a;
+
+
+.btn-primary{
+      background-color: white !important;
+        color: black !important;
+        border-radius: 15px !important;
+        width: 250px !important;
+        text-align: center !important;
 }

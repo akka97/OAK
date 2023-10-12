@@ -9,7 +9,7 @@ import "./Homescreen.css";
 import videoSrc from '../videos/gym.mp4';
 import DropdownItemTagsExample from '../filtercity/Filtercity';
 import '../filtercity/Filtercity.css';
-
+import ShapeExample from '../gyms/Gyms';
 
 function NavScrollExample() {
     return (
@@ -65,6 +65,9 @@ function NavScrollExample() {
                 </div>
         <div className='center-dropdown'>
             <DropdownItemTagsExample />
+        </div>
+        <div>
+            <ShapeExample />
         </div>
 
         </>
