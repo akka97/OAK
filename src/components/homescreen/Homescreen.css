@@ -1,0 +1,63 @@
+/* Styles for the Navbar */
+.navbar {
+    background-color: #333;
+    /* Change the background color */
+}
+
+.navbar-brand {
+    color: #fff;
+    /* Change the brand text color */
+}
+
+.nav-link {
+    color: #fff;
+    /* Change the link text color */
+}
+
+.nav-link:hover {
+    color: #007bff;
+    /* Change the link text color on hover */
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+    /* Change the color of the hamburger icon */
+}
+
+.form-control {
+    background-color: #444;
+    /* Change the search input background color */
+    color: #fff;
+    /* Change the search input text color */
+    border: none;
+    /* Remove the input border */
+}
+
+.btn-outline-success {
+    color: #28a745;
+    /* Change the search button text color */
+    border-color: #28a745;
+    /* Change the search button border color */
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    /* Change the background color on button hover */
+    color: #fff;
+    /* Change the text color on button hover */
+}
+
+/* Styles for the collapsed Navbar on small screens */
+@media (max-width: 991px) {
+    .navbar-nav {
+        background-color: #333;
+        /* Change the background color of the collapsed Navbar */
+    }
+}
+
+/* Add more CSS rules to customize as needed */
+
+.custom_menu {
+    width: 30%;
+    margin: 0 auto;
+}
