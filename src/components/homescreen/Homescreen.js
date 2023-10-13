@@ -11,6 +11,7 @@ import DropdownItemTagsExample from '../filtercity/Filtercity';
 import '../filtercity/Filtercity.css';
 import ShapeExample from '../gyms/Gyms';
 import RateExample from '../gymrate/gymRate';
+import Footer from '../footer/Footer';
 
 function NavScrollExample() {
     return (
@@ -81,10 +82,8 @@ function NavScrollExample() {
                 </div>
         </div>
          
-         <div className ='footer'>
-            <p>[rooob
-                
-            </p>
+         <div>
+            <Footer />
          </div>
 
         </>
