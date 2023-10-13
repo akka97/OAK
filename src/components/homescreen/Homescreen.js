@@ -12,6 +12,7 @@ import '../filtercity/Filtercity.css';
 import ShapeExample from '../gyms/Gyms';
 import RateExample from '../gymrate/gymRate';
 import Footer from '../footer/Footer';
+import { Link } from 'react-router-dom';
 
 function NavScrollExample() {
     return (
@@ -28,7 +29,7 @@ function NavScrollExample() {
                         navbarScroll
                     >
                         <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Link</Nav.Link>
+                        <Nav.Link to="/LogInForm">Register</Nav.Link>
                         <NavDropdown title="Link" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">
