@@ -6,16 +6,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
-import myModal from "../reusable-components/modal";
+import MyModal from "../reusable-components/modal";
 
 const NavScrollExample = () => {
 
     const [show, setShow] = useState(false);
+    const showModal = () => setShow(true);
 
-    const showModal = () => {
-        console.log("event----");
-        setShow(true);
-    }
 
     return (
         <>
@@ -30,9 +27,9 @@ const NavScrollExample = () => {
                             navbarScroll
                         >
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Button variant="primary" onClick={(e) => showModal()}>
+                            <Nav.Link onClick={(e) => showModal()}>
                                 Register
-                            </Button>
+                            </Nav.Link>
                             <NavDropdown title="Link" id="navbarScrollingDropdown">
                                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">
@@ -59,6 +56,10 @@ const NavScrollExample = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+
+            <MyModal show={show} setShow={setShow} />
+
+
         </>
     )
 }

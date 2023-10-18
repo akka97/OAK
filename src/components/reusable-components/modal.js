@@ -3,23 +3,23 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const myModal = (props) => {
-    const [show, setShow] = useState(false);
+const MyModal = (props) => {
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleChange = (e) => {
 
-    const handleChange =(e) =>{
-        
     }
 
     const handleSubmit = (e) => {
+        console.log("props---", props);
         e.preventDefault();
     }
 
+
+    const handleClose = () => props.setShow(false);
+
     return (
         <>
-            <Modal show={show} hide={handleClose} animation={false}>
+            <Modal show={props.show} hide={props.show} onHide={handleClose} animation={true}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
@@ -53,4 +53,4 @@ const myModal = (props) => {
         </>
     )
 }
-export default myModal;
+export default MyModal;
