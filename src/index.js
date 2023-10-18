@@ -14,9 +14,6 @@ export default function App () {
     <Routes>
         <Route path="/" element={<NavScrollExample />} >
     </Route>
-    <Route>
-          <Route path="/register" element={<RegisterForm />} />
-    </Route>
     </Routes>
   </BrowserRouter>
   //</React.StrictMode>

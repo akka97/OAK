@@ -1,7 +1,7 @@
 // RegisterPage.js
 import React from 'react';
 import { useState } from 'react';
-import './Register.css'; // Import the CSS file
+import './Register.css';
 
 
 function RegisterForm() {
@@ -30,7 +30,6 @@ function RegisterForm() {
 
     return (
         <div className="App">
-           
             <h2>Register</h2>
             <form onSubmit={handleSubmit}>
                 <div>
