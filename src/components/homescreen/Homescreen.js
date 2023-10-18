@@ -12,7 +12,7 @@ import '../filtercity/Filtercity.css';
 import ShapeExample from '../gyms/Gyms';
 import RateExample from '../gymrate/gymRate';
 import Footer from '../footer/Footer';
-import { Link } from 'react-router-dom';
+
 
 function NavScrollExample() {
     return (

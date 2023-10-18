@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -7,9 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <NavScrollExample />
-  </React.StrictMode>
+  //<React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<NavScrollExample />}>
+      </Route>
+    </Routes>
+  </BrowserRouter>
+  //</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
