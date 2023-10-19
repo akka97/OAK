@@ -9,7 +9,6 @@ const Footer = () => {
                 <div className="footer-content">
                     <div className="footer-logo">
                         <img src={logooak} />
-                        <h1>Your Project Name</h1>
                     </div>
                     <div className="footer-links">
                         <ul>

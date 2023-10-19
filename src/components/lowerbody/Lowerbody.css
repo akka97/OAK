@@ -1,10 +1,10 @@
 /* Style the header */
 header {
-    background-color: #666;
+    background-color: #ffffff;
     padding: 30px;
     text-align: center;
     font-size: 35px;
-    color: white;
+    color: rgb(8, 8, 8);
 }
 
 section::after {
@@ -17,7 +17,7 @@ article1 {
     width: 30%;
     height: 300px;
     /* only for demonstration, should be removed */
-    background: #ccc;
+    background: white;
     padding: 20px;
 }
 article2 {
@@ -25,14 +25,14 @@ article2 {
     width: 30%;
     height: 300px;
     /* only for demonstration, should be removed */
-    background: #ccc;
+    background: #ffffff;
     padding: 20px;
 }
 article3 {
-    float: left;
+    float: right;
     width: 30%;
     height: 300px;
     /* only for demonstration, should be removed */
-    background: #ccc;
+    background: #ffffff;
     padding: 20px;
 }
