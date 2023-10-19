@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import MyModal from "../reusable-components/modal";
+import logooak from "../../images/logo oak.png";
 
 const NavScrollExample = () => {
 
@@ -18,7 +19,9 @@ const NavScrollExample = () => {
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container fluid>
-                    <Navbar.Brand href="#">LOGOOOOOOO</Navbar.Brand>
+                    <Navbar.Brand>
+                        <img src={logooak} />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
