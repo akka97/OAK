@@ -7,6 +7,7 @@ import ShapeExample from '../gyms/Gyms';
 import RateExample from '../gymrate/gymRate';
 import Footer from '../footer/Footer';
 import NavScrollExample from '../navbar/Navbar';
+import LowerBody from "../lowerbody/Lowerbody";
 
 
     function Homescreen () {
@@ -39,6 +40,9 @@ import NavScrollExample from '../navbar/Navbar';
                 <div className='element'>
             <RateExample />
                 </div>
+        </div>
+        <div>
+            <LowerBody />
         </div>
          
          <div>

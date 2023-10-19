@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'; // You may need to create a CSS file for styling
+import logooak from "../../images/logo oak.png"
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-logo">
-                        <img src="/logo.png" alt="Your Logo" />
+                        <img src={logooak} />
                         <h1>Your Project Name</h1>
                     </div>
                     <div className="footer-links">

@@ -1,0 +1,38 @@
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+article1 {
+    float: left;
+    width: 30%;
+    height: 300px;
+    /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+}
+article2 {
+    float: left;
+    width: 30%;
+    height: 300px;
+    /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+}
+article3 {
+    float: left;
+    width: 30%;
+    height: 300px;
+    /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+}
