@@ -31,11 +31,6 @@ import LowerBody from "../lowerbody/Lowerbody";
         <div>
             <ShapeExample />
         </div>
-
-        <div>
-        <p> Hapsir bosh              bosh</p>
-        </div>
-
         <div>
                 <div className='element'>
             <RateExample />

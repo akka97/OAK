@@ -4,7 +4,7 @@ import './Filtercity.css';
 
 function DropdownItemTagsExample() {
   return (
-    <DropdownButton className='btn-primary' id="dropdown-item-button" title="Dropdown button">
+    <DropdownButton className='btn-primary' id="dropdown-item-button" title="Choose your class">
       <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
       <Dropdown.Item as="button">Action</Dropdown.Item>
       <Dropdown.Item as="button">Another action</Dropdown.Item>

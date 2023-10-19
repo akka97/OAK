@@ -33,28 +33,27 @@ const NavScrollExample = () => {
                             <Nav.Link onClick={(e) => showModal()}>
                                 Register
                             </Nav.Link>
-                            <NavDropdown title="Link" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                            <NavDropdown title="All Fitness" id="navbarScrollingDropdown">
+                                <NavDropdown.Item href="#action3">Palestra</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">
-                                    Another action
+                                    Spa
                                 </NavDropdown.Item>
-                                <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action5">
-                                    Something else here
+                                    Box
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action6">
+                                    Crossfit
                                 </NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="#" disabled>
-                                Link
-                            </Nav.Link>
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control
                                 type="search"
-                                placeholder="Search"
+                                placeholder="Do behet ajo e gjuhe ktu"
                                 className="me-2"
                                 aria-label="Search"
                             />
-                            <Button variant="outline-success">Search</Button>
+                            <Button variant="outline-success">Language</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
