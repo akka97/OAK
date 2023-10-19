@@ -1,0 +1,19 @@
+.image-styles {
+    width: 268px;
+    height: 167px;
+    border-radius: 10px;
+}
+
+.gym-container {
+    position: relative;
+    padding: 10px;
+}
+
+.gym-tittle {
+    position: absolute;
+    bottom: 120px;
+    left: 40px;
+    color: #ffffff;
+    line-height: 1.2;
+    font-weight: bold;
+}
