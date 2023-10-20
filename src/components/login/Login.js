@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const MyModal = (props) => {
+const MyModal1 = (props) => {
 
     const handleChange = (e) => {
 
@@ -21,7 +21,7 @@ const MyModal = (props) => {
         <>
             <Modal show={props.show} hide={props.show} onHide={handleClose} animation={true}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Register Form</Modal.Title>
+                    <Modal.Title>LoginForm</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
@@ -53,4 +53,4 @@ const MyModal = (props) => {
         </>
     )
 }
-export default MyModal;
+export default MyModal1;

@@ -1,7 +1,6 @@
 /* RateExample.css */
 .element {
     background-color: #272727 !important;
-    color: white !important;
     height: 500px;
 
 }
@@ -13,4 +12,12 @@
 
 .card {
     border: #272727 !important;
+    background-color: #272727 !important;
+    padding-top: 50px;
+}
+
+.image-styles {
+    width: 268px;
+    height: 167px;
+    border-radius: 10px;
 }

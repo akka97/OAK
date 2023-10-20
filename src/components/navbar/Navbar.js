@@ -8,12 +8,18 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import MyModal from "../reusable-components/modal";
 import logooak from "../../images/logo oak.png";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import MyModal1 from "../login/Login";
+
 
 const NavScrollExample = () => {
 
     const [show, setShow] = useState(false);
     const showModal = () => setShow(true);
 
+    const [show1, setShow1] = useState(false);
+    const showModal1 = () => setShow1(true);
 
     return (
         <>
@@ -33,6 +39,9 @@ const NavScrollExample = () => {
                             <Nav.Link onClick={(e) => showModal()}>
                                 Register
                             </Nav.Link>
+                            <Nav.Link onClick={(e) => showModal1()}>
+                                Login
+                            </Nav.Link>
                             <NavDropdown title="All Fitness" id="navbarScrollingDropdown">
                                 <NavDropdown.Item href="#action3">Palestra</NavDropdown.Item>
                                 <NavDropdown.Item href="#action4">
@@ -47,19 +56,17 @@ const NavScrollExample = () => {
                             </NavDropdown>
                         </Nav>
                         <Form className="d-flex">
-                            <Form.Control
-                                type="search"
-                                placeholder="Do behet ajo e gjuhe ktu"
-                                className="me-2"
-                                aria-label="Search"
-                            />
-                            <Button variant="outline-success">Language</Button>
+                            <DropdownButton className='btn-primary' id="dropdown-item-button" title="Choose your language">
+                                <Dropdown.Item as="button">English</Dropdown.Item>
+                                <Dropdown.Item as="button">Albania</Dropdown.Item>
+                            </DropdownButton>
                         </Form>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
             <MyModal show={show} setShow={setShow} />
+            <MyModal1 show={show1} setShow={setShow1} />
 
 
         </>
