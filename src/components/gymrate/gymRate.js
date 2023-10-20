@@ -35,9 +35,9 @@ import Placeholder from 'react-bootstrap/Placeholder';
 function CardExample() {
     return (
         <div className="d-flex justify-content-around">
-            <Card style={{ width: '17rem' }}>
+            <Card className='card' style={{ width: '17rem' }}>
                 <Card.Img variant="top" src={alfa} />
-                <Card.Body >
+                <Card.Body className='CardBody'>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the
@@ -46,9 +46,9 @@ function CardExample() {
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '17rem' }}>
+            <Card className='card' style={{ width: '17rem' }}>
                 <Card.Img variant="top" src={alfa} />
-                <Card.Body>
+                <Card.Body className='CardBody'>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the
@@ -57,9 +57,9 @@ function CardExample() {
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '17rem' }}>
+            <Card className='card' style={{ width: '17rem' }}>
                 <Card.Img variant="top" src={alfa} />
-                <Card.Body>
+                <Card.Body className='CardBody'>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the
@@ -68,9 +68,9 @@ function CardExample() {
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
             </Card>
-            <Card style={{ width: '17rem' }}>
+            <Card className='card' style={{ width: '17rem' }}>
                 <Card.Img variant="top" src={alfa} />
-                <Card.Body>
+                <Card.Body className='CardBody'>
                     <Card.Title>Card Title</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the

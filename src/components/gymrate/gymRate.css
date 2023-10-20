@@ -2,5 +2,15 @@
 .element {
     background-color: #272727 !important;
     color: white !important;
+    height: 500px;
 
+}
+
+.CardBody {
+    background-color: #272727 !important;
+    color: aliceblue !important;
+}
+
+.card {
+    border: #272727 !important;
 }
