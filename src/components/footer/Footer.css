@@ -42,8 +42,6 @@ a:hover {
 
 /* Style a simple footer */
 footer {
-    background-color: #f4f5f7;
-    color: #fff;
     padding: 1px 0;
     text-align: left;
 }
@@ -54,11 +52,34 @@ footer-links {
     padding: 20px;
 }
 
-.footer-links>ul>{list-style: none;}
+.footer-links>ul> {
+    list-style: none;
+}
+
 .footer-links>ul>li {
     display: inline-block;
     padding: 20px;
 }
-.footer-links>ul>li > a{text-decoration: none;}
 
+.footer-links>ul>li>a {
+    text-decoration: none;
+}
+
+.footer-content {
+    border-bottom: 1px solid #ccc;
+}
+
+.last-footer {
+    margin-top: 50px !important;
+}
+
+.second-footer>ul {
+    list-style-type: none;
+}
+
+.second-footer>ul>li {
+    display: inline-block;
+}
+
+.language-container > form {float: right;}
 /* Add additional styles for specific elements or components as needed */

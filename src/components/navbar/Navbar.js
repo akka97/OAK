@@ -1,32 +1,29 @@
 import { useState } from "react";
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
 import MyModal from "../reusable-components/modal";
 import logooak from "../../images/logo oak.png";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import MyModal1 from "../login/Login";
-
+import LoginForm from "../login/Login";
+import "./Navbar.css";
 
 const NavScrollExample = () => {
 
     const [show, setShow] = useState(false);
     const showModal = () => setShow(true);
-
-    const [show1, setShow1] = useState(false);
-    const showModal1 = () => setShow1(true);
+    const [status, setStatus] = useState(false);
+    const showModal1 = () => setStatus(true);
 
     return (
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container fluid>
                     <Navbar.Brand>
-                        <img src={logooak} />
+                        <img src={logooak} alt="image" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
@@ -56,7 +53,9 @@ const NavScrollExample = () => {
                             </NavDropdown>
                         </Nav>
                         <Form className="d-flex">
-                            <DropdownButton className='btn-primary' id="dropdown-item-button" title="Choose your language">
+                            <DropdownButton className='btn-primary' id="dropdown-item-button" title={
+                                <span>Languages<i class="bi bi-globe-americas lng-icon"></i></span>
+                            }>
                                 <Dropdown.Item as="button">English</Dropdown.Item>
                                 <Dropdown.Item as="button">Albania</Dropdown.Item>
                             </DropdownButton>
@@ -65,8 +64,8 @@ const NavScrollExample = () => {
                 </Container>
             </Navbar>
 
-            <MyModal show={show} setShow={setShow} />
-            <MyModal1 show={show1} setShow={setShow1} />
+            {/* <MyModal show={show} setShow={setShow} /> */}
+            <LoginForm show={status} setShow={setStatus} />
 
 
         </>

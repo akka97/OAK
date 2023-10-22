@@ -5,19 +5,19 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RegisterForm from './components/register/Register';
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 
-export default function App () {
+export default function App() {
   return (
-  //<React.StrictMode>
-  <BrowserRouter>
-    <Routes>
+    //<React.StrictMode>
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<NavScrollExample />} >
-    </Route>
-    </Routes>
-  </BrowserRouter>
-  //</React.StrictMode>
-);
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    //</React.StrictMode>
+  );
 }
 
 // If you want to start measuring performance in your app, pass a function

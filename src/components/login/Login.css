@@ -1,0 +1,16 @@
+.login-form-container {
+    margin: 50px !important;
+}
+
+
+.email-container>div,
+.password-container>div {
+    width: 100%;
+}
+
+.email-container>div>div,
+.password-container>div>div {
+    width: 80%;
+}
+
+.password-container {}

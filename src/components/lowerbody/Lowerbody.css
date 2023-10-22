@@ -1,38 +1,7 @@
-/* Style the header */
-header {
-    background-color: #ffffff;
-    padding: 30px;
-    text-align: center;
-    font-size: 35px;
-    color: rgb(8, 8, 8);
+.lowerbody-container {
+    margin-top: 50px;
 }
 
-section::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-article1 {
-    float: left;
-    width: 30%;
-    height: 300px;
-    /* only for demonstration, should be removed */
-    background: white;
-    padding: 20px;
-}
-article2 {
-    float: left;
-    width: 30%;
-    height: 300px;
-    /* only for demonstration, should be removed */
-    background: #ffffff;
-    padding: 20px;
-}
-article3 {
-    float: right;
-    width: 30%;
-    height: 300px;
-    /* only for demonstration, should be removed */
-    background: #ffffff;
-    padding: 20px;
+.lowerbody-container>h2 {
+    text-align: center;
 }

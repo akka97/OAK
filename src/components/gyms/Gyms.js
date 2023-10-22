@@ -1,7 +1,7 @@
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 import db_data from "../../db/gyms";
 import "./Gyms.css";
 
@@ -12,7 +12,7 @@ function ShapeExample() {
                 {
                     db_data.map((el, index) => {
                         return (
-                            <Col xs={6} md={3} className='gym-container'>
+                            <Col xs={6} md={3} key={el.id} className='gym-container'>
                                 <Image src={el.src} className='image-styles' />
                                 <h5 className='gym-tittle'>{el.name}</h5>
                             </Col>

@@ -17,66 +17,82 @@ import magnet from "../images/magnet.jpeg";
 
 const db_data = [
     {
+        id:1,
         src: nobis2,
         name: "Nobis Wellness Center",
     },
     {
+        id: 2,
         src: repeat,
         name: "Repeat Fitness Tirana",
     },
     {
+        id: 3,
         src: vesa,
         name: "Vesa SPA&Fitness",
     },
     {
+        id: 4,
         src: core,
         name: "Core Pilates",
     },
     {
+        id: 5,
         src: perfect,
         name: "Palestra Perfect Fitness",
     },
     {
+        id: 6,
         src: lake,
         name: "Lake Fitness", 
     },
     {
+        id: 7,
         src: fitalb,
         name: "FitAlb GYM",
     },
     {
+        id: 8,
         src: angels,
         name: "Angel's Fitness Gym",
     },
     {
+        id: 9,
         src: expres,
         name: "Fit Express Tirana",
     },
     {
+        id: 10,
         src: fit21,
         name: "Fit 21shi Athlete",
     },
     {
+        id: 11,
         src: alfa,
         name: "Alpha CrossFit Tirana ",
     },
     {
+        id: 12,
         src: zorba,
         name: "ZORBA Fitness Club",
     },
     {
+        id: 13,
         src: stamina,
         name: "Crossfit stamina",
     },
     {
+        id: 14,
         src: limitles,
         name: "Limitless Fitness Tirana",
     },
     {
+        id: 15,
         src: arena,
         name: "Arena Boxing and Fitness",
     },
     {
+        id: 16,
         src: magnet,
         name: "Magnet fit and gym",
     },
