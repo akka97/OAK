@@ -4,19 +4,19 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import MyModal from "../reusable-components/modal";
 import logooak from "../../images/logo oak.png";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import LoginForm from "../login/Login";
+import RegisterForm from "../register/Register";
 import "./Navbar.css";
 
 const NavScrollExample = () => {
 
     const [show, setShow] = useState(false);
-    const showModal = () => setShow(true);
+    const openRegisterModal = () => setShow(true);
     const [status, setStatus] = useState(false);
-    const showModal1 = () => setStatus(true);
+    const openLoginModal = () => setStatus(true);
 
     return (
         <>
@@ -33,10 +33,10 @@ const NavScrollExample = () => {
                             navbarScroll
                         >
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link onClick={(e) => showModal()}>
+                            <Nav.Link onClick={(e) => openRegisterModal()}>
                                 Register
                             </Nav.Link>
-                            <Nav.Link onClick={(e) => showModal1()}>
+                            <Nav.Link onClick={(e) => openLoginModal()}>
                                 Login
                             </Nav.Link>
                             <NavDropdown title="All Fitness" id="navbarScrollingDropdown">
@@ -64,10 +64,8 @@ const NavScrollExample = () => {
                 </Container>
             </Navbar>
 
-            {/* <MyModal show={show} setShow={setShow} /> */}
+            <RegisterForm show={show} setShow={setShow} /> 
             <LoginForm show={status} setShow={setStatus} />
-
-
         </>
     )
 }

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
+import { Link, Grid, Box, TextField, Typography, Avatar } from '@mui/material';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Form, Formik, Field, useFormik } from 'formik';
-import TextField from '@mui/material/TextField';
 import { validationSchema } from "./validationSchema";
-import Grid from '@mui/material/Grid';
 import "./Login.css";
 import Button from '@mui/material/Button';
 
@@ -22,10 +22,11 @@ const LoginForm = (props) => {
         <>
             <Modal show={props.show} hide={props.show} onHide={handleClose} animation={true}>
                 <Modal.Header closeButton>
-                    <Modal.Title>
-                        <h2>Login Form</h2>
-                    </Modal.Title>
+                    <Typography component="h1" variant="h5">
+                        Sign in
+                    </Typography>
                 </Modal.Header>
+
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
@@ -34,7 +35,6 @@ const LoginForm = (props) => {
                         formikHelpers.resetForm();
                     }}
                 >
-
                     {({ field, errors, touched, meta }) => {
                         console.log("errors--in Formi---", errors);
                         return (
