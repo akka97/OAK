@@ -5,6 +5,7 @@
 
 .email-container>div,
 .password-container>div {
+    margin-bottom: 20px;
     width: 100%;
 }
 

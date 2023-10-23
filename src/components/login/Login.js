@@ -1,68 +1,79 @@
 import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik, Field, useFormik } from 'formik';
 import TextField from '@mui/material/TextField';
 import { validationSchema } from "./validationSchema";
 import Grid from '@mui/material/Grid';
 import "./Login.css";
+import Button from '@mui/material/Button';
 
 const LoginForm = (props) => {
-
-    const handleChange = (e) => {
-
-    }
-
-    const handleSubmit = (e) => {
-        console.log("props-on submit--", props);
-        e.preventDefault();
-    }
 
     const handleClose = () => props.setShow(false);
 
     const initialValues = {
         email: "",
         password: ""
-    };
+    }
+
+    console.log("message-component----");
 
     return (
         <>
             <Modal show={props.show} hide={props.show} onHide={handleClose} animation={true}>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <h2>Login Form</h2>
+                    </Modal.Title>
+                </Modal.Header>
                 <Formik
                     initialValues={initialValues}
-                    enableReinitialize={true}
                     validationSchema={validationSchema}
-                    onSubmit={(values) => {
-                        handleSubmit(values);
+                    onSubmit={(values, formikHelpers) => {
+                        console.log("values----", values);
+                        formikHelpers.resetForm();
                     }}
                 >
 
-                    {({ field, errors, touched, meta }) => (
-                        <Form>
-                            <Grid container className="login-form-container">
-                                <Grid item xs={12} sm={12} md={12} className="email-container">
-                                    <TextField
-                                        id="outlined-basic"
-                                        label="Email"
-                                        variant="outlined"
-                                        name="email"
-                                        helperText={errors.email}
-                                        error={touched && errors}
-                                        {...field}
-                                    />
-                                </Grid>
+                    {({ field, errors, touched, meta }) => {
+                        console.log("errors--in Formi---", errors);
+                        return (
+                            <Form>
+                                <Grid container className="login-form-container">
+                                    <Grid item xs={12} sm={12} md={12} className="email-container">
+                                        <Field
+                                            id="outlined-basic"
+                                            color="primary"
+                                            label="Email"
+                                            variant="outlined"
+                                            name="email"
+                                            type="email"
+                                            as={TextField}
+                                            fullWidth
+                                            error={Boolean(errors.email) && Boolean(touched.email)}
+                                            helperText={Boolean(touched.email) && errors.email}
+                                        />
+                                    </Grid>
 
-                                <Grid item xs={12} sm={12} md={12} className="password-container">
-                                    <TextField
-                                        id="outlined-basic"
-                                        label="password"
-                                        variant="outlined"
-                                        name="password"
-                                        helperText={errors.password}
-                                    />
+                                    <Grid item xs={12} sm={12} md={12} className="password-container">
+                                        <Field
+                                            id="outlined-basic"
+                                            color="primary"
+                                            label="Password"
+                                            variant="outlined"
+                                            name="password"
+                                            type="password"
+                                            as={TextField}
+                                            fullWidth
+                                            error={Boolean(errors.password) && Boolean(touched.password)}
+                                            helperText={Boolean(touched.password) && errors.password}
+                                        />
+                                    </Grid>
+                                    <Button type="submit" variant="contained">Login</Button>
                                 </Grid>
-                            </Grid>
-                        </Form>
-                    )}
+                            </Form>
+                        )
+                    }}
                 </Formik>
             </Modal>
         </>
