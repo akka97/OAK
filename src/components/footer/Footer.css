@@ -63,6 +63,10 @@ footer-links {
 
 .footer-links>ul>li>a {
     text-decoration: none;
+    color: #333 !important;
+    padding: 50px;
+    font-size: 1.8rem;
+    
 }
 
 .footer-content {

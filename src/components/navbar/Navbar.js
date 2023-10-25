@@ -26,10 +26,9 @@ const NavScrollExample = () => {
                         <img src={logooak} alt="image" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
+                    <Navbar.Collapse id="navbarScroll"> 
                         <Nav
-                            className="me-auto my-2 my-lg-0 custom_menu"
-                            style={{ maxHeight: '100px' }}
+                            className="me-auto my-2 my-lg-0 custom_menu nav "
                             navbarScroll
                         >
                             <Nav.Link href="/">Home</Nav.Link>
