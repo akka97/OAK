@@ -57,7 +57,7 @@ const NavScrollExample = () => {
                                 <span>Languages<i class="bi bi-globe-americas lng-icon"></i></span>
                             }>
                                 <Dropdown.Item as="button">English</Dropdown.Item>
-                                <Dropdown.Item as="button">Albania</Dropdown.Item>
+                                <Dropdown.Item as="button">Albanian</Dropdown.Item>
                             </DropdownButton>
                         </Form>
                     </Navbar.Collapse>
