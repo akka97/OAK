@@ -17,14 +17,26 @@ import magnet from "../images/magnet.jpeg";
 
 const db_data = [
     {
-        id:1,
+        id: 1,
         src: nobis2,
         name: "Nobis Wellness Center",
+        description: "Switch Gym is run by Jill and Jonatan Westin. A genuine couple who have dedicated their lives to training. The gym is small and personal, located in a basement a short walk from St. Eriksplan. The focus is on training in small groups of 6-15 people depending",
+        opening: "09:00 - 21:00",
+        rating: 5,
+        gym_plan: true,
+        adress: "Diga e liqenit",
+        gym_features:["SPA","Yoga","Cross Fit"],
+        
     },
     {
         id: 2,
         src: repeat,
         name: "Repeat Fitness Tirana",
+        description: "Switch Gym is run by Jill and Jonatan Westin. A genuine couple who have dedicated their lives to training. The gym is small and personal, located in a basement a short walk from St. Eriksplan. The focus is on training in small groups of 6-15 people depending",
+        opening: "09:00 - 21:00",
+        rating: 5,
+        gym_plan: true,
+        adress: "Diga e liqenit"
     },
     {
         id: 3,
@@ -44,7 +56,7 @@ const db_data = [
     {
         id: 6,
         src: lake,
-        name: "Lake Fitness", 
+        name: "Lake Fitness",
     },
     {
         id: 7,
