@@ -4,12 +4,15 @@
   justify-content: center;
 }
 
+.btn-primary {
+  background-color: white !important;
+  color: black !important;
+  border-radius: 15px !important;
+  width: 250px !important;
+  text-align: center !important;
+}
 
-
-.btn-primary{
-      background-color: white !important;
-        color: black !important;
-        border-radius: 15px !important;
-        width: 250px !important;
-        text-align: center !important;
+.filter-gym-btn>button {
+  padding: 15px;
+  letter-spacing: 1.2px;
 }

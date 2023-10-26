@@ -15,11 +15,11 @@ function ShapeExample() {
                         return (
                             <Col xs={12} sm={4} md={3} lg={3} key={el.id} className='gym-container'>
                                 <Nav.Link href={`/gym/${el.id}`}>
-                                <Image src={el.src} className='image-styles' />
-                                <h5 className='gym-tittle'>{el.name}</h5>
-                            </Nav.Link>
+                                    <Image src={el.src} className='image-styles' />
+                                    <h5 className='gym-tittle'>{el.name}</h5>
+                                </Nav.Link>
                             </Col>
-            )
+                        )
                     })
                 }
             </Row>

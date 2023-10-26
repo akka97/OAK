@@ -1,16 +1,33 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './Filtercity.css';
 
-function DropdownItemTagsExample() {
+function FilterCity() {
+
+  const handleChange = (e) => {
+
+  }
+
+
   return (
-    <DropdownButton className='btn-primary' id="dropdown-item-button" title="Choose your class">
-      <Dropdown.ItemText>Dropdown item text</Dropdown.ItemText>
-      <Dropdown.Item as="button">Action</Dropdown.Item>
-      <Dropdown.Item as="button">Another action</Dropdown.Item>
-      <Dropdown.Item as="button">Something else</Dropdown.Item>
-    </DropdownButton>
+    <FormControl fullWidth>
+      <InputLabel id="demo-simple-select-label">Filter by zone</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={20}
+        label="Age"
+        onChange={handleChange}
+      >
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
+    </FormControl>
   );
 }
 
-export default DropdownItemTagsExample;
+export default FilterCity;

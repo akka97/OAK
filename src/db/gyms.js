@@ -19,6 +19,7 @@ const db_data = [
     {
         id: 1,
         src: nobis2,
+        secsrc: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         name: "Nobis Wellness Center",
         description: "Switch Gym is run by Jill and Jonatan Westin. A genuine couple who have dedicated their lives to training. The gym is small and personal, located in a basement a short walk from St. Eriksplan. The focus is on training in small groups of 6-15 people depending",
         opening: "09:00 - 21:00",
@@ -31,8 +32,9 @@ const db_data = [
     {
         id: 2,
         src: repeat,
+        secsrc: "https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         name: "Repeat Fitness Tirana",
-        description: "Switch Gym is run by Jill and Jonatan Westin. A genuine couple who have dedicated their lives to training. The gym is small and personal, located in a basement a short walk from St. Eriksplan. The focus is on training in small groups of 6-15 people depending",
+        description: "The gym is small and personal, located in a basement a short walk from St. Eriksplan. The focus is on training in small groups of 6-15 people depending",
         opening: "09:00 - 21:00",
         rating: 5,
         gym_plan: true,
