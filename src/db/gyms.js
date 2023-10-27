@@ -26,8 +26,9 @@ const db_data = [
         rating: 5,
         gym_plan: true,
         adress: "Diga e liqenit",
-        gym_features:["SPA","Yoga","Cross Fit"],
-        
+        gym_features: ["SPA", "Yoga", "Cross Fit"],
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
     },
     {
         id: 2,
@@ -38,7 +39,8 @@ const db_data = [
         opening: "09:00 - 21:00",
         rating: 5,
         gym_plan: true,
-        adress: "Diga e liqenit"
+        adress: "Diga e liqenit",
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     },
     {
         id: 3,

@@ -18,11 +18,21 @@ import LocalParkingOutlinedIcon from '@mui/icons-material/LocalParkingOutlined';
 const GymCard = () => {
 
     const params = useParams();
-    const [gym, setGym] = useState([]);
+    const [gym, setGym] = useState({
+        id: 0,
+        src: "",
+        secsrc: "",
+        name: "",
+        description: "",
+        opening: "",
+        rating: 0,
+        gym_plan: true,
+        adress: "",
+        gym_features: [],
+        gym_day: ["Monday","Tuesday"]
+    });
 
     useEffect(() => {
-
-        console.log("gym---2");
         const result = db_data.find((el, index) => {
             if (el.id == params.id)
                 return el;
@@ -30,7 +40,6 @@ const GymCard = () => {
         setGym(result);
     }, []);
 
-    console.log("gym---1", gym);
 
     return (
         <>
@@ -60,10 +69,26 @@ const GymCard = () => {
                                     </span>
                                 </li>
                                 <li><LocalParkingOutlinedIcon />
-                                <span>
-                                    Parking
-                                </span>
+                                    <span>
+                                        Parking
+                                    </span>
                                 </li>
+                            </ul>
+                        </div>
+                        <div className='hours-info'>
+                            <h2>Opening Hours</h2>
+                            <ul>
+                                {
+
+                                    gym.gym_day.map((el, i) => {
+                                        return (
+                                            <li>
+                                                <span className='day-container'>{el}</span>
+                                                <span className='hours-container'>05:00 - 22:00</span>
+                                            </li>
+                                        )
+                                    })
+                                }
                             </ul>
                         </div>
                     </Col>

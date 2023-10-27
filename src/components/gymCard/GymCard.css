@@ -28,6 +28,7 @@
 
 .facility-list {
     list-style-type: none;
+    overflow: hidden;
 }
 
 .facility-list>li {
@@ -39,4 +40,17 @@
     display: block;
     margin: 0 auto;
     font-size: 50px;
+}
+
+.day-container {
+    margin: 20px;
+    font-weight: bolder;
+    font-size: large;
+    margin: 0 auto;
+}
+
+.hours-container {
+    margin-right: 10px;
+    flex-direction: column;
+    display: flex;
 }
