@@ -16,8 +16,6 @@ const LoginForm = (props) => {
         password: ""
     }
 
-    console.log("message-component----");
-
     return (
         <>
             <Modal show={props.show} hide={props.show} onHide={handleClose} animation={true}>

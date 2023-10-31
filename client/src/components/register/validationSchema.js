@@ -15,5 +15,9 @@ export const validationSchema = yup.object({
     password:
         yup.string()
             .min(4, "Passwordi duhet te kete me shume se 4 karaktere")
-            .required("Passwordi eshte i detyrueshem")
+            .required("Passwordi eshte i detyrueshem"),
+    password_confirm:
+        yup.string()
+            .min(4, "Confirm Passwordi duhet te kete me shume se 4 karaktere")
+            .required("Confirm Passwordi eshte i detyrueshem")
 });

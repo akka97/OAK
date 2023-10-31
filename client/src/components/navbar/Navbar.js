@@ -22,15 +22,15 @@ const NavScrollExample = () => {
         <>
             <Navbar expand="lg" className="bg-body-tertiary">
                 <Container fluid>
-                    <Navbar.Brand>
-                        <img src={logooak} alt="image" />
-                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll"> 
+                    <Navbar.Collapse id="navbarScroll">
                         <Nav
                             className="me-auto my-2 my-lg-0 custom_menu nav "
                             navbarScroll
                         >
+                            <Navbar.Brand>
+                                <img src={logooak} alt="image" />
+                            </Navbar.Brand>
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link onClick={(e) => openRegisterModal()}>
                                 Register
@@ -38,18 +38,6 @@ const NavScrollExample = () => {
                             <Nav.Link onClick={(e) => openLoginModal()}>
                                 Login
                             </Nav.Link>
-                            <NavDropdown title="All Fitness" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Palestra</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">
-                                    Spa
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action5">
-                                    Box
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action6">
-                                    Crossfit
-                                </NavDropdown.Item>
-                            </NavDropdown>
                         </Nav>
                         <Form className="d-flex">
                             <DropdownButton className='btn-primary' id="dropdown-item-button" title={
@@ -63,7 +51,7 @@ const NavScrollExample = () => {
                 </Container>
             </Navbar>
 
-            <RegisterForm show={show} setShow={setShow} /> 
+            <RegisterForm show={show} setShow={setShow} />
             <LoginForm show={status} setShow={setStatus} />
         </>
     )

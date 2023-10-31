@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import {GymProvider} from "./Context/GymContext";
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';
 import GymCard from "./components/gymCard/GymCard";
@@ -11,12 +12,14 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
 export default function App() {
   return (
     //<React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<NavScrollExample />} />
-        <Route path="gym/:id" element={<GymCard />} />
-      </Routes>
-    </BrowserRouter>
+    <GymProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<NavScrollExample />} />
+          <Route path="gym/:id" element={<GymCard />} />
+        </Routes>
+      </BrowserRouter>
+    </GymProvider>
     //</React.StrictMode>
   );
 }
