@@ -4,7 +4,6 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
 import { User } from "./user/models/user.entity";
 
 @Module({
@@ -16,7 +15,7 @@ import { User } from "./user/models/user.entity";
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'andi',
+      password: 'akil12',
       database: 'gym',
       entities: [User],
       synchronize: true,

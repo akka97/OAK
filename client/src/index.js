@@ -2,10 +2,12 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {GymProvider} from "./Context/GymContext";
+import { GymProvider } from "./Context/GymContext";
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';
 import GymCard from "./components/gymCard/GymCard";
+import GymAdmin from "./gym_admin/GymAdmin";
+import Gyms from "./gym_admin/Gyms/Gyms";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
@@ -17,6 +19,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<NavScrollExample />} />
           <Route path="gym/:id" element={<GymCard />} />
+          <Route path="admin" element={<GymAdmin />} />
+          <Route path="gyms" element={<Gyms />} />
         </Routes>
       </BrowserRouter>
     </GymProvider>

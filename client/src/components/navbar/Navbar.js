@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import logooak from "../../images/logo oak.png";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -29,7 +28,7 @@ const NavScrollExample = () => {
                             navbarScroll
                         >
                             <Navbar.Brand>
-                                <img src={logooak} alt="image" />
+                                <img src={logooak} alt="logo image" />
                             </Navbar.Brand>
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link onClick={(e) => openRegisterModal()}>
