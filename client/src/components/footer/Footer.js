@@ -1,14 +1,18 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './Footer.css'; // You may need to create a CSS file for styling
-import logooak from "../../images/logo oak.png"
+import logooak from "../../images/logo oak.png";
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import './Footer.css';
 
-const Footer = () => {
+function Footer() {
+    const handleChange = (e) => {
+
+    }
     return (
         <footer className="footer">
             <div className="container">
@@ -35,16 +39,19 @@ const Footer = () => {
                                     </ul>
                                 </div>
                             </Col>
-                            <Col xs={12} md={5} className='lower-container language-container'>
-                                <Form className="d-flex">
-                                    <DropdownButton className='btn-primary' id="dropdown-item-button" title={
-                                        <span>Languages<i class="bi bi-globe-americas lng-icon"></i></span>
-                                    }>
-                                        <Dropdown.Item as="button">English</Dropdown.Item>
-                                        <Dropdown.Item as="button">Albania</Dropdown.Item>
-                                    </DropdownButton>
-                                </Form>
-                            </Col>
+                            <FormControl fullWidth className='language'>
+                                <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={20}
+                                    label="Age"
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value={20}>English</MenuItem>
+                                    <MenuItem value={30}>Shqip</MenuItem>
+                                </Select>
+                            </FormControl>
                         </Row>
                     </Container>
                 </div>

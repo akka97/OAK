@@ -85,5 +85,7 @@ footer-links {
     display: inline-block;
 }
 
-.language-container > form {float: right;}
-/* Add additional styles for specific elements or components as needed */
+.language {
+    width: 250px !important;
+    margin: auto !important;
+}
