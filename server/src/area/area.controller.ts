@@ -9,7 +9,6 @@ export class AreaController {
 
     @Post()
     public async createArea(@Body() bodyParam: AreaDto,): Promise<Area> {
-        
         const result = await this.areaService.create(bodyParam);
         return result;
     }

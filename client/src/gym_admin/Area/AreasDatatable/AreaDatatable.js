@@ -26,8 +26,6 @@ const AreasDataTable = () => {
         setPage(0);
     };
 
-    console.log("areas---", areas);
-
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
             <TableContainer sx={{ maxHeight: 440 }}>
