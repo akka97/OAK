@@ -1,16 +1,20 @@
 import { useState } from "react";
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logooak from "../../images/logo oak.png";
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import LoginForm from "../login/Login";
 import RegisterForm from "../register/Register";
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import "./Navbar.css";
 
-const NavScrollExample = () => {
+function NavScrollExample () {
+    const handleChange = (e) => {
+
+    }
 
     const [show, setShow] = useState(false);
     const openRegisterModal = () => setShow(true);
@@ -24,28 +28,33 @@ const NavScrollExample = () => {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
-                            className="me-auto my-2 my-lg-0 custom_menu nav "
+                            className="me-auto my-2 my-lg-0 custom_menu nav navbar-elem"
                             navbarScroll
                         >
                             <Navbar.Brand>
                                 <img src={logooak} alt="logo image" />
                             </Navbar.Brand>
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link onClick={(e) => openRegisterModal()}>
+                            <Nav.Link className="home-elem" href="/">Home</Nav.Link>
+                            <Nav.Link className="register-elem" onClick={(e) => openRegisterModal()}>
                                 Register
                             </Nav.Link>
-                            <Nav.Link onClick={(e) => openLoginModal()}>
+                            <Nav.Link className="login-elem" onClick={(e) => openLoginModal()}>
                                 Login
                             </Nav.Link>
                         </Nav>
-                        <Form className="d-flex">
-                            <DropdownButton className='btn-primary' id="dropdown-item-button" title={
-                                <span>Languages<i class="bi bi-globe-americas lng-icon"></i></span>
-                            }>
-                                <Dropdown.Item as="button">English</Dropdown.Item>
-                                <Dropdown.Item as="button">Albanian</Dropdown.Item>
-                            </DropdownButton>
-                        </Form>
+                        <FormControl fullWidth className="language-bar">
+                            <InputLabel id="demo-simple-select-label">Language</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={20}
+                                label="Age"
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={20}>English</MenuItem>
+                                <MenuItem value={30}>Shqip</MenuItem>
+                            </Select>
+                        </FormControl>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
