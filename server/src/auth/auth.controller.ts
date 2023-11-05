@@ -18,14 +18,10 @@ export class AuthController {
     @Post('register')
     public async register(@Body() bodyParam: RegisterDto): Promise<User> {
 
-        console.log("body----", bodyParam);
-
         if (bodyParam.password !== bodyParam.password_confirm) {
             throw new AuthErrors("passwords does not match", HttpStatus.BAD_REQUEST);
         }
-
         const hashedPassword = await bcrypt.hash(bodyParam?.password, 10);
-
         return this.userService.registerUser(
             {
                 firstname: bodyParam.firstname,

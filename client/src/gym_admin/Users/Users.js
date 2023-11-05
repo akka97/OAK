@@ -1,5 +1,5 @@
 import Sidenav from "../Sidenav/Sidenav";
-import GymModal from "./GymModal/GymModal";
+import UserModal from "./UserModal/UserModal";
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Container from 'react-bootstrap/Container';
@@ -8,15 +8,15 @@ import Col from 'react-bootstrap/Col';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 
-import GymDataTable from "./GymDatatable/GymDatatable";
-import "./Gyms.css";
+import UsersDataTable from "./UserDatatable/UserDatatable";
+import "./Users.css";
 import { useState } from "react";
 
-const Gyms = () => {
+const Users = () => {
 
     const [open, setOpen] = useState(false);
 
-    const createGym = () => {
+    const createUser = () => {
         setOpen(true);
     }
 
@@ -27,14 +27,14 @@ const Gyms = () => {
                 <Toolbar />
                 <Container>
                     <Row>
-                        <div className="gyms-container">
+                        <div className="users-container">
                             <Col xs={12} sm={4} md={3} lg={3}>
-                                <Button variant="contained" onClick={createGym}>Create Gym  <AddIcon /> </Button>
-                                <GymModal open={open} setOpen={setOpen} />
+                                <Button variant="contained" onClick={createUser}>Create User  <AddIcon /> </Button>
+                                <UserModal open={open} setOpen={setOpen} />
                             </Col>
 
-                            <Col xs={12} sm={12} md={12} ls={12} className="gym-data-table-cont">
-                                <GymDataTable />
+                            <Col xs={12} sm={12} md={12} ls={12} className="users-data-table-cont">
+                                <UsersDataTable />
                             </Col>
                         </div>
                     </Row>
@@ -43,4 +43,4 @@ const Gyms = () => {
         </>
     )
 }
-export default Gyms;
+export default Users;

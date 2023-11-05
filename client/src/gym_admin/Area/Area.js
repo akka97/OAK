@@ -1,5 +1,5 @@
 import Sidenav from "../Sidenav/Sidenav";
-import GymModal from "./GymModal/GymModal";
+import AreaModal from "./AreaModal/AreaModal";
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Container from 'react-bootstrap/Container';
@@ -8,18 +8,15 @@ import Col from 'react-bootstrap/Col';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 
-import GymDataTable from "./GymDatatable/GymDatatable";
-import "./Gyms.css";
+import AreasDataTable from "./AreasDatatable/AreaDatatable";
+import "./Area.css";
 import { useState } from "react";
 
-const Gyms = () => {
-
+const Areas = () => {
     const [open, setOpen] = useState(false);
-
-    const createGym = () => {
+    const createArea = () => {
         setOpen(true);
     }
-
     return (
         <>
             <Box sx={{ display: 'flex' }}>
@@ -27,14 +24,14 @@ const Gyms = () => {
                 <Toolbar />
                 <Container>
                     <Row>
-                        <div className="gyms-container">
+                        <div className="areas-container">
                             <Col xs={12} sm={4} md={3} lg={3}>
-                                <Button variant="contained" onClick={createGym}>Create Gym  <AddIcon /> </Button>
-                                <GymModal open={open} setOpen={setOpen} />
+                                <Button variant="contained" onClick={createArea}>Create Area  <AddIcon /> </Button>
+                                <AreaModal open={open} setOpen={setOpen} />
                             </Col>
 
-                            <Col xs={12} sm={12} md={12} ls={12} className="gym-data-table-cont">
-                                <GymDataTable />
+                            <Col xs={12} sm={12} md={12} ls={12} className="areas-data-table-cont">
+                                <AreasDataTable />
                             </Col>
                         </div>
                     </Row>
@@ -43,4 +40,4 @@ const Gyms = () => {
         </>
     )
 }
-export default Gyms;
+export default Areas;

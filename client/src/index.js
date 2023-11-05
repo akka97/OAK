@@ -2,28 +2,35 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { GymProvider } from "./Context/GymContext";
+import { AuthProvider } from "./Context/Auth";
+import { AreaProvider } from "./Context/Area";
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';
 import GymCard from "./components/gymCard/GymCard";
-import GymAdmin from "./gym_admin/GymAdmin";
+import Sidenav from "./gym_admin/Sidenav/Sidenav";
 import Gyms from "./gym_admin/Gyms/Gyms";
+import Users from "./gym_admin/Users/Users";
+import Areas from './gym_admin/Area/Area';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
 export default function App() {
   return (
     //<React.StrictMode>
-    <GymProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<NavScrollExample />} />
-          <Route path="gym/:id" element={<GymCard />} />
-          <Route path="admin" element={<GymAdmin />} />
-          <Route path="gyms" element={<Gyms />} />
-        </Routes>
-      </BrowserRouter>
-    </GymProvider>
+    <AuthProvider>
+      <AreaProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<NavScrollExample />} />
+            <Route path="gym/:id" element={<GymCard />} />
+            <Route path="admin" element={<Sidenav />} />
+            <Route path="gyms" element={<Gyms />} />
+            <Route path="users" element={<Users />} />
+            <Route path="areas" element={<Areas />} />
+          </Routes>
+        </BrowserRouter>
+      </AreaProvider>
+    </AuthProvider>
     //</React.StrictMode>
   );
 }

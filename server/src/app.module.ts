@@ -5,22 +5,26 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from "./user/models/user.entity";
+import { GymsModule } from './gyms/gyms.module';
+import { AreaModule } from './area/area.module';
 
 @Module({
   imports: [
     AuthModule,
     UserModule,
+    GymsModule,
+    AreaModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'akil12',
+      password: 'andi',
       database: 'gym',
       entities: [User],
       synchronize: true,
       autoLoadEntities: true,
-    }),
+    })
   ],
   controllers: [],
   providers: [],

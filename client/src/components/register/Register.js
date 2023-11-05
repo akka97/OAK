@@ -1,6 +1,5 @@
-import useEffect from "react";
 import { Link, Grid, Box, TextField, Typography, Button, Avatar } from '@mui/material';
-import { useGymContext } from "../../Context/GymContext";
+import { useAuthContext } from "../../Context/Auth";
 import { CssBaseline, Container } from '@mui/material/';
 import Modal from 'react-bootstrap/Modal';
 import { Form, Formik, Field } from 'formik';
@@ -27,7 +26,7 @@ const defaultTheme = createTheme();
 
 const RegisterForm = (props) => {
 
-    const { registerUser } = useGymContext();
+    const { registerUser } = useAuthContext();
     const handleClose = () => props.setShow(false);
 
     const initialValues = {
@@ -39,12 +38,6 @@ const RegisterForm = (props) => {
     }
 
     const handleSubmit = (values) => {
-        // const data = new FormData(event.currentTarget);
-        // console.log({
-        //     email: data.get('email'),
-        //     password: data.get('password'),
-        // });
-        console.log("values----", values);
         registerUser(values);
         handleClose();
     };
