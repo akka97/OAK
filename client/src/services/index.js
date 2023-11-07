@@ -17,4 +17,14 @@ const getArea = async (data) => {
     return axios.get("http://localhost:3000/api/area", data);
 }
 
-export { register, login, createArea, getArea };
+
+const updateArea = async (id,data) => {
+    return axios.delete(`http://localhost:3000/api/area/${id}`,data);
+}
+
+const deleteArea = async (id) =>{
+    console.log("delete axios");
+    return axios.delete(`http://localhost:3000/api/area/${id}`);
+}
+
+export { register, login, createArea, getArea, deleteArea, updateArea };

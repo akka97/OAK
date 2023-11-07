@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { createArea, getArea } from "../services/index";
+import { createArea, getArea, deleteArea, updateArea } from "../services/index";
 
 const AreaContext = createContext({});
 
@@ -34,7 +34,33 @@ const AreaProvider = (props) => {
         }
     }
 
-    const values = { createAreas, areas };
+    const updateAreas = async (id,data) => {
+        try {
+           const result =  await updateArea(id,data);
+            console.log("results---updateAreas--",result);
+            if (result.status === 200) {
+                setAreas(result.data)
+            }
+            await getAreas();
+            return;
+        } catch (error) {
+            return error;
+        }
+    }
+
+
+    const deleteAreas = async (id) => {
+        try {
+             await deleteArea(id);
+            //console.log("results---deleteAreas--",result);
+            await getAreas();
+            return ;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const values = { createAreas, areas, updateAreas,deleteAreas };
     return (
         <AreaContext.Provider value={values}>
             {props.children}

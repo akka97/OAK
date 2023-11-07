@@ -40,7 +40,7 @@ const AreaModal = (props) => {
             aria-describedby="parent-modal-description"
         >
             <Box sx={{ ...style, width: 400 }}>
-                <h2 id="parent-modal-title">Create Area</h2>
+                <h2 id="parent-modal-title">Area Modal</h2>
                 <Box
                     sx={{
                         marginTop: 8,

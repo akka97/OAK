@@ -18,6 +18,11 @@ export class AreaService {
         return result;
     }
 
+    public async update(id: number,data:any) {
+        const result = await this.areaRepository.update(id,{...data} )
+        return result;
+    }
+
     public async delete(id: number) {
         const result = await this.areaRepository.delete(id);
         return result;

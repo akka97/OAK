@@ -12,11 +12,10 @@ import TableRow from '@mui/material/TableRow';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-const AreasDataTable = () => {
-    const { areas } = useAreaContext();
+const AreasDataTable = (props) => {
+    const { areas, deleteAreas } = useAreaContext();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
-
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
@@ -25,6 +24,15 @@ const AreasDataTable = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
+
+    const handleDeleteClick = async (id) => {
+        // Add your delete logic here
+        console.log("we are here--", id);
+        deleteAreas(id);
+    }
+
+    const handleUpdate = (id) =>{}
 
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -53,13 +61,13 @@ const AreasDataTable = () => {
                                         <TableCell>{el.updatedAt}</TableCell>
 
                                         <TableCell>
-                                            <Button variant="contained" startIcon={<EditIcon />}>
+                                            <Button variant="contained" startIcon={<EditIcon />} onClick={()=>{handleUpdate(el.id)}}>
                                                 Edit
                                             </Button>
                                         </TableCell>
 
                                         <TableCell>
-                                            <Button variant="contained" startIcon={<DeleteIcon />}>
+                                            <Button variant="contained" startIcon={<DeleteIcon />} onClick={() => handleDeleteClick(el.id)} >
                                                 Delete
                                             </Button>
                                         </TableCell>

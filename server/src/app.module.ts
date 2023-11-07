@@ -19,7 +19,7 @@ import { AreaModule } from './area/area.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'andi',
+      password: '12341234',
       database: 'gym',
       entities: [User],
       synchronize: true,
