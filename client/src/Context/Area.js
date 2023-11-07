@@ -22,11 +22,22 @@ const AreaProvider = (props) => {
         }
     }
 
-    const getAreas = async (data) => {
+    const editAreas = async (data) => {
+        try {
+            const res = await editAreas(data);
+            getAreas();
+            return res;
+
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async function getAreas(data) {
         try {
             const result = await getArea(data);
             if (result.status === 200) {
-                setAreas(result.data)
+                setAreas(result.data);
             }
             return result;
         } catch (error) {
@@ -60,7 +71,7 @@ const AreaProvider = (props) => {
         }
     }
 
-    const values = { createAreas, areas, updateAreas,deleteAreas };
+    const values = { createAreas, areas, updateAreas,deleteAreas, editAreas };
     return (
         <AreaContext.Provider value={values}>
             {props.children}
