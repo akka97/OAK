@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,7 +16,16 @@ import NavScrollExample from '../navbar/Navbar';
 import LowerBody from "../lowerbody/Lowerbody";
 import "./Homescreen.css";
 import '../filtercity/Filtercity.css';
+import db_data from "../../db/gyms";
 function Homescreen() {
+
+    const [gyms, setGyms] = useState(db_data);
+
+    // useEffect(() => {
+    //     const result = db_data;
+    // }, [])
+
+
     return (
         <>
             <div>
@@ -35,7 +45,7 @@ function Homescreen() {
                     <Row>
 
                         <Col xs={12} sm={12} md={4} lg={6} className='filter-search'>
-                            <FilterSearch />
+                            <FilterSearch setGyms={setGyms} />
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={3} className='filter-citty'>
                             <FilterCity />
@@ -48,7 +58,7 @@ function Homescreen() {
                 </Container>
             </div>
             <div>
-                <ShapeExample />
+                <ShapeExample db_data={gyms} />
             </div>
             <div>
                 <div className='element'>

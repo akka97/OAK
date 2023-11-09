@@ -28,7 +28,7 @@ const db_data = [
         adress: "Diga e liqenit",
         gym_features: ["SPA", "Yoga", "Cross Fit"],
         gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
+        
     },
     {
         id: 2,

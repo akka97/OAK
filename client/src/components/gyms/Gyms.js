@@ -3,15 +3,15 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import db_data from "../../db/gyms";
+
 import "./Gyms.css";
 
-function ShapeExample() {
+function ShapeExample(props) {
     return (
         <Container>
             <Row>
                 {
-                    db_data.map((el, index) => {
+                    props.db_data.map((el, index) => {
                         return (
                             <Col xs={12} sm={4} md={3} lg={3} key={el.id} className='gym-container'>
                                 <Nav.Link href={`/gym/${el.id}`}>

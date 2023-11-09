@@ -1,8 +1,8 @@
 import TextField from '@mui/material/TextField';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import db_data from '../../db/gyms';
 
-const FilterSearch = () => {
+const FilterSearch = (props) => {
     const [searchText, setSearchText] = useState('');
 
     const handleSearchChange = (event) => {
@@ -13,6 +13,10 @@ const FilterSearch = () => {
         );
 
         console.log(filteredGyms);
+
+        props.setGyms(filteredGyms);
+
+
     };
 
     return (
