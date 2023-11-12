@@ -8,9 +8,7 @@ export class AuthGuard implements CanActivate {
         const request = context.switchToHttp().getRequest();
         const jwt = request.cookies.jwt;
 
-
         if (!jwt) {
-            console.log("jwt----", jwt);
             throw new HttpException("unauthorieze", HttpStatus.UNAUTHORIZED)
         }
         const jwt_verify = this.jwtService.verify(jwt);
@@ -19,6 +17,5 @@ export class AuthGuard implements CanActivate {
             return true
         }
         return false;
-
     }
 }

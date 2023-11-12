@@ -1,14 +1,14 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { register, login } from "../services/index";
+import { register, login, getAuthUser, logout } from "../services/index";
 
 const AuthContext = createContext({});
 
 const AuthProvider = (props) => {
 
-    const [gyms, setGyms] = useState([]);
+    const [authUser, setAuthUSer] = useState([]);
 
     useEffect(() => {
-
+        checkAuthUser();
     }, []);
 
 
@@ -20,17 +20,39 @@ const AuthProvider = (props) => {
             return error;
         }
     }
+
     const loginUser = async (data) => {
         try {
             const result = await login(data);
-            console.log("login---", result);
             return result;
         } catch (error) {
             return error;
         }
     }
 
-    const values = { registerUser, loginUser };
+    const checkAuthUser = async () => {
+        try {
+            const result = await getAuthUser();
+            if (result.status === 200) {
+                setAuthUSer(result.data);
+            }
+            return result;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const logoutUser = async () => {
+        try {
+            const result = await logout();
+            console.log("logout");
+            return result;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const values = { registerUser, loginUser, logoutUser, checkAuthUser, authUser };
     return (
         <AuthContext.Provider value={values}>
             {props.children}

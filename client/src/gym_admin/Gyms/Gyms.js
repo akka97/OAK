@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 
-import GymDataTable from "./GymDataTable/GymDataTable";
+import GymDataTable from "./GymDatatable/GymDatatable";
 import "./Gyms.css";
 import { useState } from "react";
 

@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import { Link, Grid, Box, TextField, Typography, Avatar } from '@mui/material';
+import {Grid, Box, TextField, Typography, Avatar } from '@mui/material';
 import { useAuthContext } from "../../Context/Auth";
 import { CssBaseline } from '@mui/material/';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -7,8 +7,12 @@ import { Form, Formik, Field, useFormik } from 'formik';
 import { validationSchema } from "./validationSchema";
 import "./Login.css";
 import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 
 const LoginForm = (props) => {
+    const navigate = useNavigate();
+    const [redirect, setRedirect] = useState(false);
     const { loginUser } = useAuthContext();
 
     const handleClose = () => props.setShow(false);
@@ -18,8 +22,16 @@ const LoginForm = (props) => {
         password: ""
     }
 
-    const handleSubmit = (values) => {
-        loginUser(values);
+    const handleSubmit = async (values) => {
+        const result = await loginUser(values);
+        console.log("result-login---", result);
+        if (result.data) {
+            setRedirect(true);
+        }
+    }
+
+    if (redirect) {
+        return navigate("/");
     }
 
     return (
@@ -58,7 +70,7 @@ const LoginForm = (props) => {
                                     <Grid container className="login-form-container">
                                         <Grid item xs={12} sm={12} md={12} className="email-container">
                                             <Field
-                                                id="outlined-basic"
+                                                id="email"
                                                 color="primary"
                                                 label="Email"
                                                 variant="outlined"
@@ -73,7 +85,7 @@ const LoginForm = (props) => {
 
                                         <Grid item xs={12} sm={12} md={12} className="password-container">
                                             <Field
-                                                id="outlined-basic"
+                                                id="password"
                                                 color="primary"
                                                 label="Password"
                                                 variant="outlined"
@@ -97,16 +109,3 @@ const LoginForm = (props) => {
     )
 }
 export default LoginForm;
-
-
-{/* <Form onSubmit={handleSubmit}>
-    <Form.Group className="mb-3" controlId="exampleForm.email">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="text" placeholder="name@example.com" name="email" onChange={handleChange} />
-    </Form.Group>
-    <Form.Group className="mb-3" controlId="exampleForm.password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="password" name="password" onChange={handleChange} />
-    </Form.Group>
-    <Button variant="primary" type='submit'>Submit</Button>
-</Form> */}

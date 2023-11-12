@@ -7,10 +7,10 @@ import { AreaProvider } from "./Context/Area";
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';
 import GymCard from "./components/gymCard/GymCard";
-import Sidenav from "./gym_admin/Sidenav/Sidenav";
 import Gyms from "./gym_admin/Gyms/Gyms";
 import Users from "./gym_admin/Users/Users";
 import Areas from './gym_admin/Area/Area';
+import PrivateRoute from "./privateRoute/index";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 
@@ -23,10 +23,12 @@ export default function App() {
           <Routes>
             <Route path="/" element={<NavScrollExample />} />
             <Route path="gym/:id" element={<GymCard />} />
-            <Route path="admin" element={<Sidenav />} />
-            <Route path="gyms" element={<Gyms />} />
-            <Route path="users" element={<Users />} />
-            <Route path="areas" element={<Areas />} />
+            <Route path="admin/gyms" element={<Gyms />} />
+            <Route path="admin/users" element={<Users />} />
+            <Route element={<PrivateRoute />}>
+              <Route path="admin/areas" element={<Areas />} />
+            </Route>
+
           </Routes>
         </BrowserRouter>
       </AreaProvider>

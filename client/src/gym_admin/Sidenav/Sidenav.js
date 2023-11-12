@@ -107,7 +107,7 @@ const Sidenav = () => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    <ListItem key={"Gyms"} disablePadding onClick={() => { return navigate('/gyms') }}>
+                    <ListItem key={"Gyms"} disablePadding onClick={() => { return navigate('/admin/gyms') }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 <FitnessCenterIcon />
@@ -117,7 +117,7 @@ const Sidenav = () => {
                     </ListItem>
                 </List>
                 <List>
-                    <ListItem key={"Users"} disablePadding onClick={() => { return navigate('/users') }}>
+                    <ListItem key={"Users"} disablePadding onClick={() => { return navigate('/admin/users') }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 <GroupIcon />
@@ -127,7 +127,7 @@ const Sidenav = () => {
                     </ListItem>
                 </List>
                 <List>
-                    <ListItem key={"Areas"} disablePadding onClick={() => { return navigate('/areas') }}>
+                    <ListItem key={"Areas"} disablePadding onClick={() => { return navigate('/admin/areas') }}>
                         <ListItemButton>
                             <ListItemIcon>
                                 <ExploreIcon />

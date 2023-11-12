@@ -2,11 +2,12 @@ import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
 import { User } from "./user/models/user.entity";
 import { GymsModule } from './gyms/gyms.module';
 import { AreaModule } from './area/area.module';
+import { PermissionGuard } from './guards/permission.guard';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { AreaModule } from './area/area.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'akil12',
+      password: 'andi',
       database: 'gym',
       entities: [User],
       synchronize: true,
@@ -27,6 +28,11 @@ import { AreaModule } from './area/area.module';
     })
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: PermissionGuard
+    }
+  ],
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
-import { Body, Res, Controller, HttpStatus, Post } from '@nestjs/common';
+import { Body, Res, Controller, HttpStatus, Post, Get, Req, UseGuards } from '@nestjs/common';
 import { Response, Request } from 'express';
+import { AuthGuard } from 'src/guards/auth.guard';
 import { UserService } from "../user/user.service";
 import { AuthErrors } from "./errors/auth.errors";
 import { JwtService } from "@nestjs/jwt";
@@ -8,6 +9,7 @@ import { RegisterDto } from "./dto/RegisterDto";
 import { LoginDto } from "./dto/LoginDto";
 
 import * as bcrypt from 'bcrypt';
+import { request } from 'http';
 
 @Controller('auth')
 export class AuthController {
@@ -28,7 +30,7 @@ export class AuthController {
                 lastname: bodyParam.lastname,
                 email: bodyParam.email,
                 password: hashedPassword,
-                role: "admin"
+                role: "user"
             }
         );
     }
@@ -47,18 +49,26 @@ export class AuthController {
         if (!password) {
             throw new AuthErrors("user with this password was not found", HttpStatus.NOT_FOUND)
         }
-
         const jwt = await this.jwtService.signAsync({ id: user.id });
-
         response.cookie('jwt', jwt, { httpOnly: true });
-
         return user;
     }
 
+    // @UseGuards(AuthGuard)
     @Post('logout')
     //fshijme cookie sepse fronti nuk ka akses ti fshije
     public logout(@Res({ passthrough: true }) response: Response) {
         response.clearCookie('jwt');
+        console.log("logout---backend");
         return { "message": "success", "status": 200 }
+    }
+
+    @UseGuards(AuthGuard)
+    @Get('user')
+    public async user(@Req() request: Request) {
+        const cookie = request.cookies['jwt'];
+        const data = await this.jwtService.verifyAsync(cookie);
+        const user = await this.userService.findById(data.id);
+        return user;
     }
 }

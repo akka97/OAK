@@ -16,4 +16,9 @@ export class UserService {
         const result = await this.userRepository.findOneBy({ email })
         return result;
     }
+
+    public async findById(id): Promise<any> {
+        const result = await this.userRepository.findOneBy({ id })
+        return result;
+    }
 }

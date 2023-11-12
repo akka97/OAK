@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuthContext } from "../../Context/Auth";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,19 +8,26 @@ import LoginForm from "../login/Login";
 import RegisterForm from "../register/Register";
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import "./Navbar.css";
 
-function NavScrollExample () {
-    const handleChange = (e) => {
-
-    }
+function NavScrollExample() {
+    const { logoutUser } = useAuthContext();
 
     const [show, setShow] = useState(false);
     const openRegisterModal = () => setShow(true);
     const [status, setStatus] = useState(false);
     const openLoginModal = () => setStatus(true);
+
+    const handleLogout = async () => {
+        const result = await logoutUser();
+        return;
+    }
+
+    const handleChange = (e) => {
+
+    }
 
     return (
         <>
@@ -40,6 +48,10 @@ function NavScrollExample () {
                             </Nav.Link>
                             <Nav.Link className="login-elem" onClick={(e) => openLoginModal()}>
                                 Login
+                            </Nav.Link>
+
+                            <Nav.Link className="login-elem" onClick={(e) => { handleLogout() }}>
+                                Logout
                             </Nav.Link>
                         </Nav>
                         <FormControl fullWidth className="language-bar">
