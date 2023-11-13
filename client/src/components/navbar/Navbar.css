@@ -4,29 +4,3 @@
     position: relative;
     left: 180px;
 }
-
-.navbar-elem {
-    position: relative;
-    right: 160px;
-}
-
-.home-elem {
-    position: relative;
-    left: 150px;
-    transform: scale(1.5);
-    padding: 20px !important;
-}
-
-.login-elem {
-    position: relative;
-    left: 650px;
-    transform: scale(1.5);
-    padding: 20px !important;
-}
-
-.register-elem {
-    position: relative;
-    left: 400px;
-    transform: scale(1.5);
-    padding: 20px !important;
-}

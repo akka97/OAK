@@ -7,11 +7,6 @@ const AreaProvider = (props) => {
 
     const [areas, setAreas] = useState([]);
 
-    useEffect(() => {
-        getAreas();
-    }, []);
-
-
     const createAreas = async (data) => {
         try {
             const result = await createArea(data);
@@ -45,10 +40,10 @@ const AreaProvider = (props) => {
         }
     }
 
-    const updateAreas = async (id,data) => {
+    const updateAreas = async (id, data) => {
         try {
-           const result =  await updateArea(id,data);
-            console.log("results---updateAreas--",result);
+            const result = await updateArea(id, data);
+            console.log("results---updateAreas--", result);
             if (result.status === 200) {
                 setAreas(result.data)
             }
@@ -62,16 +57,16 @@ const AreaProvider = (props) => {
 
     const deleteAreas = async (id) => {
         try {
-             await deleteArea(id);
+            await deleteArea(id);
             //console.log("results---deleteAreas--",result);
             await getAreas();
-            return ;
+            return;
         } catch (error) {
             return error;
         }
     }
 
-    const values = { createAreas, areas, updateAreas,deleteAreas, editAreas };
+    const values = { createAreas, areas, updateAreas, deleteAreas, editAreas };
     return (
         <AreaContext.Provider value={values}>
             {props.children}

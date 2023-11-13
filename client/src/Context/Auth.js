@@ -5,12 +5,7 @@ const AuthContext = createContext({});
 
 const AuthProvider = (props) => {
 
-    const [authUser, setAuthUSer] = useState([]);
-
-    useEffect(() => {
-        checkAuthUser();
-    }, []);
-
+    const [authUser, setAuthUser] = useState([]);
 
     const registerUser = async (data) => {
         try {
@@ -24,6 +19,7 @@ const AuthProvider = (props) => {
     const loginUser = async (data) => {
         try {
             const result = await login(data);
+            checkAuthUser();
             return result;
         } catch (error) {
             return error;
@@ -34,7 +30,7 @@ const AuthProvider = (props) => {
         try {
             const result = await getAuthUser();
             if (result.status === 200) {
-                setAuthUSer(result.data);
+                setAuthUser(result.data);
             }
             return result;
         } catch (error) {
@@ -46,6 +42,7 @@ const AuthProvider = (props) => {
         try {
             const result = await logout();
             console.log("logout");
+            setAuthUser([]);
             return result;
         } catch (error) {
             return error;

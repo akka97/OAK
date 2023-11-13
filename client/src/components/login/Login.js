@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import {Grid, Box, TextField, Typography, Avatar } from '@mui/material';
+import { Grid, Box, TextField, Typography, Avatar } from '@mui/material';
 import { useAuthContext } from "../../Context/Auth";
 import { CssBaseline } from '@mui/material/';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -24,14 +24,9 @@ const LoginForm = (props) => {
 
     const handleSubmit = async (values) => {
         const result = await loginUser(values);
-        console.log("result-login---", result);
-        if (result.data) {
-            setRedirect(true);
-        }
-    }
-
-    if (redirect) {
-        return navigate("/");
+        console.log("result--in-----handleSubmit--", result);
+        props.setShow(false);
+        return;
     }
 
     return (
