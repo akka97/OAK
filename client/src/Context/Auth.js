@@ -7,6 +7,10 @@ const AuthProvider = (props) => {
 
     const [authUser, setAuthUser] = useState([]);
 
+    useEffect(() => {
+        checkAuthUser();
+    }, []);
+
     const registerUser = async (data) => {
         try {
             const result = await register(data);

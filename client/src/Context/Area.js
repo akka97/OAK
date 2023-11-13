@@ -7,6 +7,10 @@ const AreaProvider = (props) => {
 
     const [areas, setAreas] = useState([]);
 
+    useEffect(() => {
+        getAreas();
+    }, []);
+
     const createAreas = async (data) => {
         try {
             const result = await createArea(data);
@@ -28,7 +32,7 @@ const AreaProvider = (props) => {
         }
     }
 
-    async function getAreas(data) {
+    const getAreas = async (data) => {
         try {
             const result = await getArea(data);
             if (result.status === 200) {

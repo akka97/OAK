@@ -14,7 +14,7 @@ const logout = async () => {
 }
 
 const getAuthUser = async (data) => {
-    return axios.get("http://localhost:3000/api/auth/user", { withCredentials: true });
+    return axios.get("http://localhost:3000/api/auth/user");
 }
 
 

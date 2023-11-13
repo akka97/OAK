@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -13,6 +14,7 @@ import Areas from './gym_admin/Area/Area';
 import PrivateRoute from "./privateRoute/index";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.min.css";
+axios.defaults.withCredentials = true;
 
 export default function App() {
   return (
@@ -28,7 +30,6 @@ export default function App() {
               <Route path="admin/users" element={<Users />} />
               <Route path="admin/areas" element={<Areas />} />
             </Route>
-
           </Routes>
         </BrowserRouter>
       </AreaProvider>

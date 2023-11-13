@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useState } from "react";
 import { useAuthContext } from "../../Context/Auth";
 import Container from 'react-bootstrap/Container';
@@ -6,10 +7,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import logooak from "../../images/logo oak.png";
 import LoginForm from "../login/Login";
 import RegisterForm from "../register/Register";
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import "./Navbar.css";
@@ -21,7 +18,6 @@ function NavScrollExample() {
     const [status, setStatus] = useState(false);
 
     const openModal = () => {
-
         setStatus(true);
     }
 
@@ -45,7 +41,7 @@ function NavScrollExample() {
                         <Nav className="me-auto">
                             {authUser.firstname ?
                                 <>
-                                    <Nav.Link> <AccountCircleIcon /> | {authUser?.firstname}</Nav.Link>
+                                    <Nav.Link> <AccountCircleIcon /> {authUser?.firstname}</Nav.Link>
                                     <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                                 </>
                                 :
@@ -58,7 +54,7 @@ function NavScrollExample() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar >
-            {/* <RegisterForm show={show} setShow={setShow} /> */}
+            <RegisterForm show={status} setShow={setStatus} />
             <LoginForm show={status} setShow={setStatus} />
         </>
     )
