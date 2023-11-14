@@ -6,11 +6,12 @@ import Image from 'react-bootstrap/Image';
 import "./Gyms.css";
 
 function ShapeExample(props) {
+
     return (
         <Container>
             <Row>
                 {
-                    props.db_data.map((el, index) => {
+                    props.gyms.map((el, index) => {
                         return (
                             <Col xs={12} sm={4} md={3} lg={3} key={el.id} className='gym-container'>
                                 <Nav.Link href={`/gym/${el.id}`}>

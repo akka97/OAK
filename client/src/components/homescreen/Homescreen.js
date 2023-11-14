@@ -20,6 +20,7 @@ import db_data from "../../db/gyms";
 function Homescreen() {
 
     const [gyms, setGyms] = useState(db_data);
+    const [gymList, setGymList] = useState(db_data);
 
     return (
         <>
@@ -39,20 +40,20 @@ function Homescreen() {
                 <Container>
                     <Row>
                         <Col xs={12} sm={12} md={4} lg={6} className='filter-search'>
-                            <FilterSearch setGyms={setGyms} />
+                            <FilterSearch setGyms={setGymList} />
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={3} className='filter-citty'>
-                            <FilterCity setGyms={setGyms} gyms={gyms} />
+                            <FilterCity setGymList={setGymList} gyms={gyms} />
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={3} className='filter-category'>
-                            <FilterCategory />
+                            <FilterCategory setGymList={setGymList} gyms={gyms} />
                         </Col>
 
                     </Row>
                 </Container>
             </div>
             <div>
-                <ShapeExample db_data={gyms} />
+                <ShapeExample gyms={gymList} />
             </div>
             <div>
                 <div className='element'>

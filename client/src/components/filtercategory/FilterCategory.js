@@ -4,12 +4,19 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import './FilterCategory.css';
+import { useState } from 'react';
 
-function FilterCategory() {
+function FilterCategory(props) {
+
+    const [category, setCategory] = useState(0);
 
     const handleChange = (e) => {
-
-    }
+        const value = e.target.value;
+        let filteredCitty = props.gyms.filter((el, i) => {
+            return el.category === value;
+        });
+        props.setGymList(filteredCitty);
+    };
 
     return (
         <FormControl fullWidth>
@@ -17,13 +24,12 @@ function FilterCategory() {
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={20}
                 label="Age"
                 onChange={handleChange}
             >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={1}>SPA</MenuItem>
+                <MenuItem value={2}>Fitnes</MenuItem>
+                <MenuItem value={3}>Gym</MenuItem>
             </Select>
         </FormControl>
     );

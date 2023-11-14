@@ -20,7 +20,7 @@ import { APP_GUARD } from '@nestjs/core';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: '12341234',
+      password: 'andi',
       database: 'gym',
       entities: [User],
       synchronize: true,

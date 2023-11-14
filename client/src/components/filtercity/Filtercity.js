@@ -6,23 +6,16 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import './Filtercity.css';
-import React, { useState } from 'react';
 
 function FilterCity(props) {
-
-  const [selectedZone, setSelectedZone] = useState([]);
 
   const handleChange = (e) => {
     const value = e.target.value;
 
-
-    props.setGyms((prevState)=>{
-      let filteredCitty = prevState.filter((el, i) => {
-        return el.zone === value;
-      });
-      return [...filteredCitty];
-
+    let filteredCitty = props.gyms.filter((el, i) => {
+      return el.zone === value;
     });
+    props.setGymList(filteredCitty);
   };
 
   return (

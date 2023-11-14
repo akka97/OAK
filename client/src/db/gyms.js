@@ -28,7 +28,8 @@ const db_data = [
         adress: "Diga e liqenit",
         gym_features: ["SPA", "Yoga", "Cross Fit"],
         gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        zone: 1
+        zone: 1,
+        category: 1
     },
     {
         id: 2,
@@ -41,79 +42,106 @@ const db_data = [
         gym_plan: true,
         adress: "Diga e liqenit",
         gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        zone: 2
+        zone: 2,
+        category: 1
     },
     {
         id: 3,
         src: vesa,
         name: "Vesa SPA&Fitness",
-        zone: 2
+        zone: 2,
+        category: 1
     },
     {
         id: 4,
         src: core,
         name: "Core Pilates",
-        zone: 1
+        zone: 1,
+        category: 3
     },
     {
         id: 5,
         src: perfect,
         name: "Palestra Perfect Fitness",
+        zone: 1,
+        category: 2
     },
     {
         id: 6,
         src: lake,
         name: "Lake Fitness",
+        zone: 1,
+        category: 3
     },
     {
         id: 7,
         src: fitalb,
         name: "FitAlb GYM",
+        zone: 2,
+        category: 2
     },
     {
         id: 8,
         src: angels,
         name: "Angel's Fitness Gym",
+        zone: 2,
+        category: 3
     },
     {
         id: 9,
         src: expres,
         name: "Fit Express Tirana",
+        zone: 2,
+        category: 1
     },
     {
         id: 10,
         src: fit21,
         name: "Fit 21shi Athlete",
+        zone: 2,
+        category: 3
     },
     {
         id: 11,
         src: alfa,
         name: "Alpha CrossFit Tirana ",
+        zone: 2,
+        category: 2
     },
     {
         id: 12,
         src: zorba,
         name: "ZORBA Fitness Club",
+        zone: 1,
+        category: 2
     },
     {
         id: 13,
         src: stamina,
         name: "Crossfit stamina",
+        zone: 1,
+        category: 3
     },
     {
         id: 14,
         src: limitles,
         name: "Limitless Fitness Tirana",
+        zone: 1,
+        category: 3
     },
     {
         id: 15,
         src: arena,
         name: "Arena Boxing and Fitness",
+        zone: 1,
+        category: 1
     },
     {
         id: 16,
         src: magnet,
         name: "Magnet fit and gym",
+        zone: 2,
+        category: 3
     },
 
 
