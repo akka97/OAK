@@ -27,8 +27,8 @@ const db_data = [
         gym_plan: true,
         adress: "Diga e liqenit",
         gym_features: ["SPA", "Yoga", "Cross Fit"],
-        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        zone: 1
     },
     {
         id: 2,
@@ -40,17 +40,20 @@ const db_data = [
         rating: 5,
         gym_plan: true,
         adress: "Diga e liqenit",
-        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        zone: 2
     },
     {
         id: 3,
         src: vesa,
         name: "Vesa SPA&Fitness",
+        zone: 2
     },
     {
         id: 4,
         src: core,
         name: "Core Pilates",
+        zone: 1
     },
     {
         id: 5,

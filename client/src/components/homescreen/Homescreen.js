@@ -21,11 +21,6 @@ function Homescreen() {
 
     const [gyms, setGyms] = useState(db_data);
 
-    // useEffect(() => {
-    //     const result = db_data;
-    // }, [])
-
-
     return (
         <>
             <div>
@@ -43,12 +38,11 @@ function Homescreen() {
             <div className='center-dropdown'>
                 <Container>
                     <Row>
-
                         <Col xs={12} sm={12} md={4} lg={6} className='filter-search'>
                             <FilterSearch setGyms={setGyms} />
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={3} className='filter-citty'>
-                            <FilterCity />
+                            <FilterCity setGyms={setGyms} gyms={gyms} />
                         </Col>
                         <Col xs={12} sm={12} md={4} lg={3} className='filter-category'>
                             <FilterCategory />

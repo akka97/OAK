@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+
 import { useState } from "react";
 import { useAuthContext } from "../../Context/Auth";
 import Container from 'react-bootstrap/Container';
@@ -13,7 +13,6 @@ import "./Navbar.css";
 
 function NavScrollExample() {
     const { logoutUser, authUser } = useAuthContext();
-    console.log("authUser----", authUser);
 
     const [status, setStatus] = useState(false);
 

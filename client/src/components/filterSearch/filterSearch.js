@@ -11,12 +11,7 @@ const FilterSearch = (props) => {
         const filteredGyms = db_data.filter(gym =>
             gym.name.toLowerCase().includes(searchText)
         );
-
-        console.log(filteredGyms);
-
         props.setGyms(filteredGyms);
-
-
     };
 
     return (
