@@ -24,10 +24,12 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<NavScrollExample />} />
-            <Route element={<PrivateRoute />}>
-              <Route path="gym/:id" element={<GymCard />} />
-              <Route path="admin/gyms" element={<Gyms />} />
-              <Route path="admin/users" element={<Users />} />
+
+            <Route path="gym/:id" element={<GymCard />} />
+            <Route path="admin/gyms" element={<Gyms />} />
+            <Route path="admin/users" element={<Users />} />
+
+            <Route element={<PrivateRoute role={"admin"} />}>
               <Route path="admin/areas" element={<Areas />} />
             </Route>
           </Routes>

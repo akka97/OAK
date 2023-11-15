@@ -21,9 +21,8 @@ function NavScrollExample() {
     }
 
     const handleLogout = async () => {
-        const result = await logoutUser();
-        console.log("result----", result);
-        return;
+        await logoutUser();
+        localStorage.removeItem("admin");
     }
 
     const handleChange = (e) => {

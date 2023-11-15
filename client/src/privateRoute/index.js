@@ -1,14 +1,25 @@
 import { useAuthContext } from "../Context/Auth";
 import { Navigate, Outlet } from 'react-router-dom';
 
-const PrivateRoute = () => {
+import { useEffect } from "react";
+
+const PrivateRoute = (props) => {
     const { authUser } = useAuthContext();
 
-    console.log("authUser----", authUser);
-    if (authUser.length === 0) {
+    const adminStatus = JSON.parse(localStorage.getItem("admin"))
 
+    console.log("--PrivateRoute-localStorage----", adminStatus);
+
+    //return (authUser.role === "admin" ? <Outlet /> : <Navigate to={"/admin/areas"} />)
+
+    // return <Outlet />
+    if (adminStatus) {
+        console.log("authUser---PrivateRoute-----if--", adminStatus);
+        return <Outlet />
+    } else {
+        console.log("authUser---PrivateRoute-----else-", adminStatus);
+        return <Navigate to={"/"} replace />
     }
-    // return (authUser.role === "admin" ? <Outlet /> : <Navigate to={"/admin/areas"} />)
 };
 
 export default PrivateRoute;

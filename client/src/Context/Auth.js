@@ -6,10 +6,12 @@ const AuthContext = createContext({});
 const AuthProvider = (props) => {
 
     const [authUser, setAuthUser] = useState([]);
+    const [action, setAction] = useState(false);
 
     useEffect(() => {
+        // console.log("useEffect");
         checkAuthUser();
-    }, []);
+    }, [action]);
 
     const registerUser = async (data) => {
         try {
@@ -23,7 +25,10 @@ const AuthProvider = (props) => {
     const loginUser = async (data) => {
         try {
             const result = await login(data);
-            checkAuthUser();
+            if (result.status === 201) {
+                setAuthUser(result.data);
+                setAction(true);
+            }
             return result;
         } catch (error) {
             return error;
@@ -44,10 +49,9 @@ const AuthProvider = (props) => {
 
     const logoutUser = async () => {
         try {
-            const result = await logout();
-            console.log("logout");
+            await logout();
             setAuthUser([]);
-            return result;
+            return;
         } catch (error) {
             return error;
         }
