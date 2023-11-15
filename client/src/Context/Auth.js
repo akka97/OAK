@@ -9,7 +9,6 @@ const AuthProvider = (props) => {
     const [action, setAction] = useState(false);
 
     useEffect(() => {
-        // console.log("useEffect");
         checkAuthUser();
     }, [action]);
 

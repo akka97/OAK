@@ -12,12 +12,9 @@ const PrivateRoute = (props) => {
 
     //return (authUser.role === "admin" ? <Outlet /> : <Navigate to={"/admin/areas"} />)
 
-    // return <Outlet />
     if (adminStatus) {
-        console.log("authUser---PrivateRoute-----if--", adminStatus);
         return <Outlet />
     } else {
-        console.log("authUser---PrivateRoute-----else-", adminStatus);
         return <Navigate to={"/"} replace />
     }
 };

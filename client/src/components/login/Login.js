@@ -24,7 +24,6 @@ const LoginForm = (props) => {
 
     const handleSubmit = async (values) => {
         const result = await loginUser(values);
-        console.log("result--in-----handleSubmit--", result);
         if (result.data.role === "admin") {
             localStorage.setItem("admin", JSON.stringify(result.data.role));
         }
