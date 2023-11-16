@@ -26,6 +26,7 @@ const LoginForm = (props) => {
         const result = await loginUser(values);
         if (result.data.role === "admin") {
             localStorage.setItem("admin", JSON.stringify(result.data.role));
+            console.log("test---")
         }
         props.setShow(false);
         return;
