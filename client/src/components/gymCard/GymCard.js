@@ -29,7 +29,7 @@ const GymCard = () => {
         gym_plan: true,
         adress: "",
         gym_features: [],
-        gym_day: ["Monday","Tuesday"]
+        gym_day: ["Monday", "Tuesday"]
     });
 
     useEffect(() => {
@@ -39,6 +39,9 @@ const GymCard = () => {
         });
         setGym(result);
     }, []);
+
+
+    console.log("gym----", gym);
 
 
     return (
@@ -80,7 +83,7 @@ const GymCard = () => {
                             <ul>
                                 {
 
-                                    gym.gym_day.map((el, i) => {
+                                    gym.gym_day?.map((el, i) => {
                                         return (
                                             <li>
                                                 <span className='day-container'>{el}</span>

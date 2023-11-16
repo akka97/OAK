@@ -50,98 +50,112 @@ const db_data = [
         src: vesa,
         name: "Vesa SPA&Fitness",
         zone: 2,
-        category: 1
+        category: 1,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 4,
         src: core,
         name: "Core Pilates",
         zone: 1,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 5,
         src: perfect,
         name: "Palestra Perfect Fitness",
         zone: 1,
-        category: 2
+        category: 2,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 6,
         src: lake,
         name: "Lake Fitness",
         zone: 1,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 7,
         src: fitalb,
         name: "FitAlb GYM",
         zone: 2,
-        category: 2
+        category: 2,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 8,
         src: angels,
         name: "Angel's Fitness Gym",
         zone: 2,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 9,
         src: expres,
         name: "Fit Express Tirana",
         zone: 2,
-        category: 1
+        category: 1,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 10,
         src: fit21,
         name: "Fit 21shi Athlete",
         zone: 2,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 11,
         src: alfa,
         name: "Alpha CrossFit Tirana ",
         zone: 2,
-        category: 2
+        category: 2,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 12,
         src: zorba,
         name: "ZORBA Fitness Club",
         zone: 1,
-        category: 2
+        category: 2,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 13,
         src: stamina,
         name: "Crossfit stamina",
         zone: 1,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 14,
         src: limitles,
         name: "Limitless Fitness Tirana",
         zone: 1,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 15,
         src: arena,
         name: "Arena Boxing and Fitness",
         zone: 1,
-        category: 1
+        category: 1,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     {
         id: 16,
         src: magnet,
         name: "Magnet fit and gym",
         zone: 2,
-        category: 3
+        category: 3,
+        gym_day: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
 
 
