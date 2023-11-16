@@ -8,8 +8,6 @@ const PrivateRoute = (props) => {
 
     const adminStatus = JSON.parse(localStorage.getItem("admin"))
 
-    console.log("--PrivateRoute-localStorage----", adminStatus);
-
     //return (authUser.role === "admin" ? <Outlet /> : <Navigate to={"/admin/areas"} />)
 
     if (adminStatus) {
