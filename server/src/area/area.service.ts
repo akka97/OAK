@@ -18,8 +18,8 @@ export class AreaService {
         return result;
     }
 
-    public async update(id: number,data:any) {
-        const result = await this.areaRepository.update(id,{...data} )
+    public async update(id: number, data: any) {
+        const result = await this.areaRepository.update(id, { ...data })
         return result;
     }
 

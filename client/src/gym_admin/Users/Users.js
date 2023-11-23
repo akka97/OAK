@@ -13,12 +13,12 @@ import "./Users.css";
 import { useState } from "react";
 
 const Users = () => {
-
     const [open, setOpen] = useState(false);
-
     const createUser = () => {
         setOpen(true);
     }
+
+    // console.log("users------");
 
     return (
         <>

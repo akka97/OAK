@@ -1,6 +1,7 @@
 import { Modal, Grid, Box, TextField, Button } from '@mui/material';
-import { validationSchema } from "./validationSchema";
+import { validationSchema } from './validationSchemaEdit';
 import { Form, Formik, Field } from 'formik';
+import { useUserContext } from "../../../Context/User";
 
 const style = {
     position: 'absolute',
@@ -15,22 +16,19 @@ const style = {
     px: 4,
     pb: 3,
 };
-const UserModal = (props) => {
+const EditModal = (props) => {
+    const { updateAreas } = useUserContext();
 
     const handleClose = () => {
         props.setOpen(false);
     };
 
     const initialValues = {
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: ""
+        name: "",
     }
 
-    const handleSubmit = (values) => {
-        console.log("values----", values);
-        return;
+    const handleSubmit = async (values) => {
+        await updateAreas(props.id, values);
     };
 
     return (
@@ -137,7 +135,7 @@ const UserModal = (props) => {
                                         variant="contained"
                                         sx={{ mt: 3, mb: 2 }}
                                     >
-                                        Create User
+                                        Edit User
                                     </Button>
                                 </Form>
                             )
@@ -149,4 +147,4 @@ const UserModal = (props) => {
     )
 }
 
-export default UserModal;
+export default EditModal;

@@ -1,22 +1,13 @@
 import { useState } from 'react';
 import { useAreaContext } from "../../../Context/Area";
 import EditModal from '../AreaEditModal/AreaEditModal';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { updateArea } from '../../../services';
+
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, Button } from '@mui/material/';
 
 const AreasDataTable = (props) => {
-    const { areas, deleteAreas, updateAreas } = useAreaContext();
+    const { areas, deleteAreas } = useAreaContext();
     const [open, setOpen] = useState(false);
     const [id, setId] = useState(0);
 
@@ -31,17 +22,13 @@ const AreasDataTable = (props) => {
         setPage(0);
     };
 
-
     const handleDeleteClick = async (id) => {
-        // Add your delete logic here
-        console.log("we are here--", id);
         deleteAreas(id);
     }
 
     const handleUpdate = (id) => {
         setOpen(true);
         setId(id);
-        console.log("Eddddddit thiiiiis", id);
     }
 
     return (
@@ -100,7 +87,7 @@ const AreasDataTable = (props) => {
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
             </Paper>
-            <EditModal open={open} setOpen={setOpen} id={id}/>
+            <EditModal open={open} setOpen={setOpen} id={id} />
         </>
     );
 }

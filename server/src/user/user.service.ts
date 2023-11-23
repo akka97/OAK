@@ -7,6 +7,11 @@ import { Repository } from 'typeorm';
 export class UserService {
     constructor(@InjectRepository(User) private readonly userRepository: Repository<User>) { }
 
+    public async getAll(): Promise<User[]> {
+        const result = await this.userRepository.find();
+        return result;
+    }
+
     public async registerUser(data): Promise<User> {
         const result = await this.userRepository.save(data);
         return result;

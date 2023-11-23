@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Modal, Grid, Box, TextField, Button } from '@mui/material';
 import { validationSchemaEdit } from './validationSchemaEdit';
 import { Form, Formik, Field } from 'formik';
@@ -29,8 +28,7 @@ const EditModal = (props) => {
     }
 
     const handleSubmit = async (values) => {
-        console.log("edit modal submit", props.id);
-
+         await updateAreas(props.id,values);
     };
 
     return (

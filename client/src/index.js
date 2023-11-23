@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { AuthProvider } from "./Context/Auth";
 import { AreaProvider } from "./Context/Area";
+import { UserProvider } from "./Context/User";
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';
 import GymCard from "./components/gymCard/GymCard";
@@ -20,21 +21,23 @@ export default function App() {
   return (
     //<React.StrictMode>
     <AuthProvider>
-      <AreaProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<NavScrollExample />} />
+      <UserProvider>
+        <AreaProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<NavScrollExample />} />
 
-            <Route path="gym/:id" element={<GymCard />} />
-            <Route path="admin/gyms" element={<Gyms />} />
-            <Route path="admin/users" element={<Users />} />
+              <Route path="gym/:id" element={<GymCard />} />
+              <Route path="admin/gyms" element={<Gyms />} />
+              <Route path="admin/users" element={<Users />} />
 
-            <Route element={<PrivateRoute role={"admin"} />}>
-              <Route path="admin/areas" element={<Areas />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </AreaProvider>
+              <Route element={<PrivateRoute role={"admin"} />}>
+                <Route path="admin/areas" element={<Areas />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </AreaProvider>
+      </UserProvider>
     </AuthProvider>
     //</React.StrictMode>
   );
