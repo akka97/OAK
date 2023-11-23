@@ -21,7 +21,7 @@ export class PermissionGuard implements CanActivate {
         const cookie = request.cookies['jwt'];
         const data = await this.jwtService.verifyAsync(cookie).catch((error) => { return false })
 
-        console.log("data-----",data);
+        console.log("data----",data);
 
         if (data == false) {
             throw new AuthErrors("Token has expired", HttpStatus.UNAUTHORIZED)
