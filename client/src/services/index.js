@@ -33,6 +33,38 @@ const deleteArea = async (id) => {
     return axios.delete(`http://localhost:3000/api/area/${id}`);
 }
 
+const createCategory = async (data) => {
+    return axios.post("http://localhost:3000/api/category", data);
+}
+
+const getCategory = async (data) => {
+    return axios.get("http://localhost:3000/api/category", data);
+}
+
+const updateCategory = async (id, data) => {
+    return axios.patch(`http://localhost:3000/api/category/${id}`, data);
+}
+
+const deleteCategory = async (id) => {
+    return axios.delete(`http://localhost:3000/api/category/${id}`);
+}
+
+const createGym = async (data) => {
+    return axios.post("http://localhost:3000/api/gym", data);
+}
+
+const getGyms = async (data) => {
+    return axios.get("http://localhost:3000/api/gym", data);
+}
+
+const updateGym = async (id, data) => {
+    return axios.patch(`http://localhost:3000/api/gym/${id}`, data);
+}
+
+const deleteGym = async (id) => {
+    return axios.delete(`http://localhost:3000/api/gym/${id}`);
+}
+
 const get_all_users = async () => {
     return axios.get(`http://localhost:3000/api/user`);
 }
@@ -45,4 +77,24 @@ const delete_user = async (id) => {
     return axios.delete(`http://localhost://3000/user/${id}`)
 }
 
-export { register, login, createArea, getArea, deleteArea, updateArea, getAuthUser, logout, get_all_users, create_user, delete_user };
+export {
+    register,
+    login,
+    logout,
+    createArea,
+    getArea,
+    updateArea,
+    deleteArea,
+    createCategory,
+    getCategory,
+    updateCategory,
+    deleteCategory,
+    getAuthUser,
+    createGym,
+    getGyms,
+    updateGym,
+    deleteGym,
+    get_all_users,
+    create_user,
+    delete_user
+};

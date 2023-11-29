@@ -3,6 +3,7 @@ import { Reflector } from "@nestjs/core";
 import { JwtService } from "@nestjs/jwt";
 import { UserService } from "src/user/user.service";
 import { AuthErrors } from "../auth/errors/auth.errors";
+import { request } from "express";
 
 @Injectable()
 export class PermissionGuard implements CanActivate {
@@ -12,27 +13,25 @@ export class PermissionGuard implements CanActivate {
         private userSerice: UserService
     ) { }
     async canActivate(context: ExecutionContext): Promise<boolean> {
-        const access = this.reflector.get('access', context.getHandler());
-        // console.log(access);
-        // if (!access) {
-        //     return true;
-        // }
+
         const request = context.switchToHttp().getRequest();
-        const cookie = request.cookies['jwt'];
-        const data = await this.jwtService.verifyAsync(cookie).catch((error) => { return false })
+        const access = this.reflector.get('access', context.getHandler());
 
-        console.log("data-------",data);
-
-        if (data == false) {
-            throw new AuthErrors("Token has expired", HttpStatus.UNAUTHORIZED)
-        }
-
-        const result = await this.userSerice.findById(data.id);
-        console.log("result----", result.role);
-        if (result.role === access) {
+        //console.log("PermissionGuard------", access);
+        if (access === "public") {
             return true;
-        } else {
-            return false;
         }
+        const cookie = request.cookies.jwt;
+        const jwt_verify = await this.jwtService.verifyAsync(cookie).catch((error) => { return false });
+
+        //console.log("jwtService------", jwt_verify);
+
+        if (jwt_verify == false) {
+            throw new AuthErrors("Anauthoriezed User , you must be Loged In ", HttpStatus.UNAUTHORIZED);
+        }
+        const result = await this.userSerice.findById(jwt_verify.id);
+        request.user = result;
+        return true;
+
     }
 }

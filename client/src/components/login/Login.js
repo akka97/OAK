@@ -3,16 +3,12 @@ import { Grid, Box, TextField, Typography, Avatar } from '@mui/material';
 import { useAuthContext } from "../../Context/Auth";
 import { CssBaseline } from '@mui/material/';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Form, Formik, Field, useFormik } from 'formik';
+import { Form, Formik, Field } from 'formik';
 import { validationSchema } from "./validationSchema";
 import "./Login.css";
 import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
 
 const LoginForm = (props) => {
-    const navigate = useNavigate();
-    const [redirect, setRedirect] = useState(false);
     const { loginUser } = useAuthContext();
 
     const handleClose = () => props.setShow(false);
@@ -24,9 +20,9 @@ const LoginForm = (props) => {
 
     const handleSubmit = async (values) => {
         const result = await loginUser(values);
+        console.log("result-login--", result);
         if (result.data.role === "admin") {
             localStorage.setItem("admin", JSON.stringify(result.data.role));
-            console.log("test---")
         }
         props.setShow(false);
         return;
@@ -62,7 +58,6 @@ const LoginForm = (props) => {
                         }}
                     >
                         {({ field, errors, touched, meta }) => {
-                            console.log("errors--in Formi---", errors);
                             return (
                                 <Form>
                                     <Grid container className="login-form-container">

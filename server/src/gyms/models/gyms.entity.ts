@@ -42,7 +42,4 @@ export class Gym {
     @Column()
     image: string;
 
-    @ManyToMany(() => Area, { eager: true })
-    @JoinColumn({ name: "area_id" })
-    area: Area
 }

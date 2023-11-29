@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Modal, Grid, Box, TextField, Button, FormControlLabel, Checkbox } from '@mui/material';
+import { Modal, Grid, Box, TextField, Button, Checkbox, Select, MenuItem } from '@mui/material';
+import { useCategoryContext } from "../../../Context/Category";
 import { validationSchema } from "./validationSchema";
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik, Field, } from 'formik';
 
 const style = {
     position: 'absolute',
@@ -18,6 +18,8 @@ const style = {
 };
 const GymModal = (props) => {
 
+    const { categories } = useCategoryContext();
+
     const handleClose = () => {
         props.setOpen(false);
     };
@@ -31,11 +33,13 @@ const GymModal = (props) => {
         is_active: false,
         basic_plan: false,
         premium_plan: false,
-        images: "",
+        area: 0,
+        category: 0,
+        file: [],
     }
 
     const handleSubmit = (values) => {
-
+        console.log("handleSubmit-----", values);
         return;
     };
 
@@ -62,7 +66,7 @@ const GymModal = (props) => {
                         validationSchema={validationSchema}
                         onSubmit={(values, formikHelpers) => {
                             handleSubmit(values);
-                            formikHelpers.resetForm();
+                            // formikHelpers.resetForm();
                         }}
                     >
                         {({ field, errors, touched, meta, values, setfieldvalue }) => {
@@ -82,10 +86,9 @@ const GymModal = (props) => {
                                                 type="text"
                                                 as={TextField}
                                                 error={Boolean(errors.name) && Boolean(touched.name)}
-                                                helpertext={Boolean(touched.name) && errors.name}
+                                                helperText={Boolean(touched.name) && errors.name}
                                             />
                                         </Grid>
-
                                         <Grid item xs={12}>
                                             <Field
                                                 autoComplete="given-name"
@@ -99,10 +102,9 @@ const GymModal = (props) => {
                                                 type="text"
                                                 as={TextField}
                                                 error={Boolean(errors.address) && Boolean(touched.address)}
-                                                helpertext={Boolean(touched.address) && errors.address}
+                                                helperText={Boolean(touched.address) && errors.address}
                                             />
                                         </Grid>
-
                                         <Grid item xs={12}>
                                             <Field
                                                 autoComplete="given-name"
@@ -116,10 +118,9 @@ const GymModal = (props) => {
                                                 type="text"
                                                 as={TextField}
                                                 error={Boolean(errors.description) && Boolean(touched.description)}
-                                                helpertext={Boolean(touched.description) && errors.description}
+                                                helperText={Boolean(touched.description) && errors.description}
                                             />
                                         </Grid>
-
                                         <Grid item xs={12} sm={6}>
                                             <Field
                                                 autoComplete="given-name"
@@ -133,10 +134,9 @@ const GymModal = (props) => {
                                                 type="number"
                                                 as={TextField}
                                                 error={Boolean(errors.latitude) && Boolean(touched.latitude)}
-                                                helpertext={Boolean(touched.latitude) && errors.latitude}
+                                                helperText={Boolean(touched.latitude) && errors.latitude}
                                             />
                                         </Grid>
-
                                         <Grid item xs={12} sm={6}>
                                             <Field
                                                 autoComplete="given-name"
@@ -150,7 +150,7 @@ const GymModal = (props) => {
                                                 type="number"
                                                 as={TextField}
                                                 error={Boolean(errors.longitude) && Boolean(touched.longitude)}
-                                                helpertext={Boolean(touched.longitude) && errors.longitude}
+                                                helperText={Boolean(touched.longitude) && errors.longitude}
                                             />
                                         </Grid>
                                         <Grid item xs={12}>
@@ -164,7 +164,6 @@ const GymModal = (props) => {
                                                 {errors.is_active ? errors.is_active : ""}
                                             </label>
                                         </Grid>
-
                                         <Grid item xs={12}>
                                             <label>
                                                 <Field
@@ -174,7 +173,6 @@ const GymModal = (props) => {
                                                 Is offering Basic Plan ?
                                             </label>
                                         </Grid>
-
                                         <Grid item xs={12}>
                                             <label>
                                                 <Field
@@ -184,20 +182,65 @@ const GymModal = (props) => {
                                                 Is offering Premium Plan ?
                                             </label>
                                         </Grid>
-
+                                        <Grid item xs={12}>
+                                            <Field
+                                                autoComplete="given-name"
+                                                required
+                                                fullWidth
+                                                autoFocus
+                                                color="primary"
+                                                label="Select Area"
+                                                variant="outlined"
+                                                name="area"
+                                                type="number"
+                                                as={Select}
+                                                error={Boolean(errors.area) && Boolean(touched.area)}
+                                                helperText={Boolean(touched.area) && errors.area}
+                                            >
+                                                {categories.map((el, index) => {
+                                                    return (
+                                                        <MenuItem key={index} value={el.id}>{el.name}</MenuItem>
+                                                    )
+                                                })}
+                                            </Field>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Field
+                                                autoComplete="given-name"
+                                                required
+                                                fullWidth
+                                                autoFocus
+                                                color="primary"
+                                                label="Select Category"
+                                                variant="outlined"
+                                                name="category"
+                                                type="number"
+                                                as={Select}
+                                                error={Boolean(errors.category) && Boolean(touched.category)}
+                                                helperText={Boolean(touched.category) && errors.category}
+                                            >
+                                                {categories.map((el, index) => {
+                                                    return (
+                                                        <MenuItem key={index} value={el.id}>{el.name}</MenuItem>
+                                                    )
+                                                })}
+                                            </Field>
+                                        </Grid>
                                         <Grid item xs={12}>
                                             <label>
                                                 <Field
-                                                    name="images"
+                                                    multiple
+                                                    name="file"
                                                     type="file"
+                                                   
                                                     title="Select a file"
                                                     setfieldvalue={setfieldvalue}
-                                                    error={errors.images ? errors.images : ""}
-                                                    helpertext={errors.images}
-                                                    touched={touched.images}
+                                                    error={errors.file ? errors.file : ""}
+                                                    helperText={errors.file}
+                                                    touched={touched.file}
                                                     style={{ display: "flex" }}
                                                 />
-                                                {errors.images ? errors.images : ""}
+                                                {errors.file ? errors.file : ""}
                                             </label>
                                         </Grid>
                                     </Grid>

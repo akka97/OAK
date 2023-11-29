@@ -7,10 +7,10 @@ const UserProvider = (props) => {
     const [users, setUsers] = useState([]);
     const [trigger, setTrigger] = useState(false);
 
-    useEffect(() => {
-        console.log("useEffect---in---User---Context");
-        getUsers();
-    }, [trigger]);
+    // useEffect(() => {
+    //     console.log("useEffect---in---User---Context");
+    //     getUsers();
+    // }, [trigger]);
 
     const getUsers = async () => {
         try {

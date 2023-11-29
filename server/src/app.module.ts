@@ -1,11 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
+import { GymsModule } from './gyms/gyms.module';
+import { AreaModule } from './area/area.module';
+
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { User } from "./user/models/user.entity";
-import { GymsModule } from './gyms/gyms.module';
-import { AreaModule } from './area/area.module';
+import { Area } from "./area/models/area.entity";
+import { Category } from "./category/models/category.entity";
+import { Gym } from './gyms/models/gyms.entity';
+
+import { CategoryModule } from "./category/category.module";
 import { PermissionGuard } from './guards/permission.guard';
 import { APP_GUARD } from '@nestjs/core';
 
@@ -15,14 +21,15 @@ import { APP_GUARD } from '@nestjs/core';
     UserModule,
     GymsModule,
     AreaModule,
+    CategoryModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'Andi1990+',
+      password: 'andi',
       database: 'gym',
-      entities: [User],
+      entities: [User, Area, Gym, Category],
       synchronize: true,
       autoLoadEntities: true,
     })

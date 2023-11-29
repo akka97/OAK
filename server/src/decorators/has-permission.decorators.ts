@@ -1,4 +1,4 @@
 import { SetMetadata } from "@nestjs/common";
 export const HasPermission = (access: string) => {
-    return SetMetadata('access', access )
+    return SetMetadata('access', access)
 }

@@ -1,28 +1,18 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
+import { Box, Drawer, CssBaseline, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import MuiAppBar from '@mui/material/AppBar';
+
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import GroupIcon from '@mui/icons-material/Group';
+import CategoryIcon from '@mui/icons-material/Category';
 import ExploreIcon from '@mui/icons-material/Explore';
 const drawerWidth = 240;
-
 
 
 const AppBar = styled(MuiAppBar, {
@@ -107,6 +97,29 @@ const Sidenav = () => {
                 </DrawerHeader>
                 <Divider />
                 <List>
+                    <ListItem key={"Areas"} disablePadding onClick={() => { return navigate('/admin/areas') }}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <ExploreIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Areas"} />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    <ListItem key={"Category"} disablePadding onClick={() => { return navigate('/admin/categories') }}>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <CategoryIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={"Category"} />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+                <Divider />
+                <Divider />
+                <List>
                     <ListItem key={"Gyms"} disablePadding onClick={() => { return navigate('/admin/gyms') }}>
                         <ListItemButton>
                             <ListItemIcon>
@@ -116,6 +129,7 @@ const Sidenav = () => {
                         </ListItemButton>
                     </ListItem>
                 </List>
+                <Divider />
                 <List>
                     <ListItem key={"Users"} disablePadding onClick={() => { return navigate('/admin/users') }}>
                         <ListItemButton>
@@ -126,18 +140,7 @@ const Sidenav = () => {
                         </ListItemButton>
                     </ListItem>
                 </List>
-                <List>
-                    <ListItem key={"Areas"} disablePadding onClick={() => { return navigate('/admin/areas') }}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <ExploreIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={"Areas"} />
-                        </ListItemButton>
-                    </ListItem>
-                </List>
             </Drawer>
-
         </Box>
     );
 }

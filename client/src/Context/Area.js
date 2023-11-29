@@ -8,8 +8,8 @@ const AreaProvider = (props) => {
     const [areas, setAreas] = useState([]);
 
     useEffect(() => {
-        getAreas();
-    }, []);
+        getAreas()
+    }, [])
 
     const createAreas = async (data) => {
         try {
@@ -39,7 +39,6 @@ const AreaProvider = (props) => {
             if (result.status === 200) {
                 getAreas();
             }
-            await getAreas();
             return;
         } catch (error) {
             return error;
