@@ -50,19 +50,19 @@ const deleteCategory = async (id) => {
 }
 
 const createGym = async (data) => {
-    return axios.post("http://localhost:3000/api/gym", data);
+    return axios.post("http://localhost:3000/api/gyms", data);
 }
 
 const getGyms = async (data) => {
-    return axios.get("http://localhost:3000/api/gym", data);
+    return axios.get("http://localhost:3000/api/gyms", data);
 }
 
 const updateGym = async (id, data) => {
-    return axios.patch(`http://localhost:3000/api/gym/${id}`, data);
+    return axios.patch(`http://localhost:3000/api/gyms/${id}`, data);
 }
 
 const deleteGym = async (id) => {
-    return axios.delete(`http://localhost:3000/api/gym/${id}`);
+    return axios.delete(`http://localhost:3000/api/gyms/${id}`);
 }
 
 const get_all_users = async () => {

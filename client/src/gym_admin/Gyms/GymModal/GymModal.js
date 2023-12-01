@@ -1,7 +1,13 @@
-import { Modal, Grid, Box, TextField, Button, Checkbox, Select, MenuItem } from '@mui/material';
 import { useCategoryContext } from "../../../Context/Category";
+import { useAreaContext } from "../../../Context/Area";
 import { validationSchema } from "./validationSchema";
 import { Form, Formik, Field, } from 'formik';
+import { Modal, Grid, Box, TextField, Button, Checkbox, Select, MenuItem } from '@mui/material';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import moment from "moment";
 
 const style = {
     position: 'absolute',
@@ -17,8 +23,8 @@ const style = {
     pb: 3,
 };
 const GymModal = (props) => {
-
     const { categories } = useCategoryContext();
+    const { areas } = useAreaContext();
 
     const handleClose = () => {
         props.setOpen(false);
@@ -35,14 +41,14 @@ const GymModal = (props) => {
         premium_plan: false,
         area: 0,
         category: 0,
-        file: [],
+        opening: "",
+        file: null,
     }
 
     const handleSubmit = (values) => {
         console.log("handleSubmit-----", values);
         return;
     };
-
     return (
         <Modal
             open={props.open}
@@ -69,7 +75,8 @@ const GymModal = (props) => {
                             // formikHelpers.resetForm();
                         }}
                     >
-                        {({ field, errors, touched, meta, values, setfieldvalue }) => {
+                        {({ field, errors, touched, meta, values, setFieldValue }) => {
+                            console.log("errors-----", errors);
                             return (
                                 <Form>
                                     <Grid container spacing={2}>
@@ -189,28 +196,6 @@ const GymModal = (props) => {
                                                 fullWidth
                                                 autoFocus
                                                 color="primary"
-                                                label="Select Area"
-                                                variant="outlined"
-                                                name="area"
-                                                type="number"
-                                                as={Select}
-                                                error={Boolean(errors.area) && Boolean(touched.area)}
-                                                helperText={Boolean(touched.area) && errors.area}
-                                            >
-                                                {categories.map((el, index) => {
-                                                    return (
-                                                        <MenuItem key={index} value={el.id}>{el.name}</MenuItem>
-                                                    )
-                                                })}
-                                            </Field>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <Field
-                                                autoComplete="given-name"
-                                                required
-                                                fullWidth
-                                                autoFocus
-                                                color="primary"
                                                 label="Select Category"
                                                 variant="outlined"
                                                 name="category"
@@ -227,21 +212,60 @@ const GymModal = (props) => {
                                             </Field>
                                         </Grid>
                                         <Grid item xs={12}>
+                                            <Field
+                                                autoComplete="given-name"
+                                                required
+                                                fullWidth
+                                                autoFocus
+                                                color="primary"
+                                                label="Select Area"
+                                                variant="outlined"
+                                                name="area"
+                                                type="number"
+                                                as={Select}
+                                                error={Boolean(errors.area) && Boolean(touched.area)}
+                                                helperText={Boolean(touched.area) && errors.area}
+                                            >
+                                                {areas.map((el, index) => {
+                                                    return (
+                                                        <MenuItem key={index} value={el.id}>{el.name}</MenuItem>
+                                                    )
+                                                })}
+                                            </Field>
+                                        </Grid>
+                                        <Grid item xs={12}>
                                             <label>
                                                 <Field
                                                     multiple
                                                     name="file"
                                                     type="file"
-                                                   
                                                     title="Select a file"
-                                                    setfieldvalue={setfieldvalue}
+                                                    value={undefined}
                                                     error={errors.file ? errors.file : ""}
                                                     helperText={errors.file}
                                                     touched={touched.file}
                                                     style={{ display: "flex" }}
+                                                    onChange={(event) => {
+                                                        console.log(event.currentTarget.files);
+                                                        setFieldValue("file", event.currentTarget.files);
+                                                    }}
                                                 />
                                                 {errors.file ? errors.file : ""}
                                             </label>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                <DemoContainer components={['DateTimePicker']}>
+                                                    <DateTimePicker label="Basic date time picker"
+                                                        name="opening"
+                                                        onChange={(dateTime) => {
+                                                            console.log("newvalue-----", dateTime);
+                                                            setFieldValue("opening", new Date(dateTime));
+                                                        }}
+
+                                                    />
+                                                </DemoContainer>
+                                            </LocalizationProvider>
                                         </Grid>
                                     </Grid>
                                     <Button

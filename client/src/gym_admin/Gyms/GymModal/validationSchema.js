@@ -42,11 +42,14 @@ export const validationSchema = yup.object({
     category:
         yup.number().required("Kategoria eshte fushe e detyrueshem"),
 
+    opening:
+        yup.string().required("Opening eshte i detyrueshem"),
+
     file:
         yup.mixed()
-        .nullable()
+            .nullable()
             .test('fileSize', 'is out of range', value => {
-                console.log("value-----", value);
+                // console.log("value-----", value);
                 return true;
             })
             .required("Duhet te ngarkosh nje imazh"),

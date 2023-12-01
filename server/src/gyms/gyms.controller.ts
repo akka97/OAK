@@ -10,6 +10,7 @@ export class GymsController {
     @Post()
     @HasPermission("admin")
     public async createArea(@Body() bodyParam): Promise<any> {
+        console.log("bodyParam-----", bodyParam);
         const result = await this.gymService.create(bodyParam);
         return result;
     }
