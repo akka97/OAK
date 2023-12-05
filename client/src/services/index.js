@@ -50,7 +50,13 @@ const deleteCategory = async (id) => {
 }
 
 const createGym = async (data) => {
-    return axios.post("http://localhost:3000/api/gyms", data);
+    return axios.post("http://localhost:3000/api/gyms", data,
+        {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+
 }
 
 const getGyms = async (data) => {

@@ -35,7 +35,7 @@ export const validationSchema = yup.object({
     premium_plan:
         yup.bool()
             .oneOf([true], "Plani premium eshte i detyrueshem"),
-
+            
     area:
         yup.number().required("Area eshte i detyrueshem"),
 
@@ -43,7 +43,10 @@ export const validationSchema = yup.object({
         yup.number().required("Kategoria eshte fushe e detyrueshem"),
 
     opening:
-        yup.string().required("Opening eshte i detyrueshem"),
+        yup.string().required("Orari i hapjes eshte i detyrueshem"),
+
+    closing:
+        yup.string().required("Orari i mbylljes eshte i detyrueshem"),
 
     file:
         yup.mixed()

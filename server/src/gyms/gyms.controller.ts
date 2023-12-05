@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Post, Delete, Param } from '@nestjs/common';
+import { Body, Controller, Get, Post, Delete, Param, UseInterceptors, UploadedFile } from '@nestjs/common';
 import { GymsService } from './gyms.service';
 import { IsPublic } from 'src/decorators/public.decorators';
 import { HasPermission } from 'src/decorators/has-permission.decorators';
+import { FileFieldsInterceptor, FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
 
 @Controller('gyms')
 export class GymsController {
@@ -9,8 +11,8 @@ export class GymsController {
 
     @Post()
     @HasPermission("admin")
-    public async createArea(@Body() bodyParam): Promise<any> {
-        console.log("bodyParam-----", bodyParam);
+    @UseInterceptors(FileInterceptor('file'))
+    public async createArea(@Body() bodyParam, @UploadedFile() file: Express.Multer.File): Promise<any> {
         const result = await this.gymService.create(bodyParam);
         return result;
     }

@@ -1,4 +1,5 @@
 import { useCategoryContext } from "../../../Context/Category";
+import { useGymContext } from "../../../Context/Gym";
 import { useAreaContext } from "../../../Context/Area";
 import { validationSchema } from "./validationSchema";
 import { Form, Formik, Field, } from 'formik';
@@ -23,6 +24,7 @@ const style = {
     pb: 3,
 };
 const GymModal = (props) => {
+    const { create_gym } = useGymContext();
     const { categories } = useCategoryContext();
     const { areas } = useAreaContext();
 
@@ -42,11 +44,28 @@ const GymModal = (props) => {
         area: 0,
         category: 0,
         opening: "",
+        closing: "",
         file: null,
     }
 
-    const handleSubmit = (values) => {
+    const handleSubmit = async (values) => {
         console.log("handleSubmit-----", values);
+        const formData = new FormData();
+        formData.append('name', values.name);
+        formData.append('description', values.description);
+        formData.append('address', values.address);
+        formData.append('latitude', values.latitude);
+        formData.append('longitude', values.longitude);
+        formData.append('is_active', values.is_active);
+        formData.append('basic_plan', values.basic_plan);
+        formData.append('premium_plan', values.premium_plan);
+        formData.append('area', values.area);
+        formData.append('category', values.category);
+        formData.append('opening', values.opening);
+        formData.append('closing', values.closing);
+        formData.append('file', values.file[0].name);
+        const result = await create_gym(formData);
+        // console.log("handleSubmit-----", result);
         return;
     };
     return (
@@ -246,8 +265,8 @@ const GymModal = (props) => {
                                                     touched={touched.file}
                                                     style={{ display: "flex" }}
                                                     onChange={(event) => {
-                                                        console.log(event.currentTarget.files);
-                                                        setFieldValue("file", event.currentTarget.files);
+                                                        console.log("event.target.files", event.target.files);
+                                                        setFieldValue("file", event.target.files);
                                                     }}
                                                 />
                                                 {errors.file ? errors.file : ""}
@@ -256,13 +275,23 @@ const GymModal = (props) => {
                                         <Grid item xs={12}>
                                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                                 <DemoContainer components={['DateTimePicker']}>
-                                                    <DateTimePicker label="Basic date time picker"
+                                                    <DateTimePicker label="Opening date time picker"
                                                         name="opening"
                                                         onChange={(dateTime) => {
-                                                            console.log("newvalue-----", dateTime);
                                                             setFieldValue("opening", new Date(dateTime));
                                                         }}
-
+                                                    />
+                                                </DemoContainer>
+                                            </LocalizationProvider>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                                <DemoContainer components={['DateTimePicker']}>
+                                                    <DateTimePicker label="Closing date time picker"
+                                                        name="closing"
+                                                        onChange={(dateTime) => {
+                                                            setFieldValue("closing", new Date(dateTime));
+                                                        }}
                                                     />
                                                 </DemoContainer>
                                             </LocalizationProvider>

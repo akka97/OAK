@@ -29,12 +29,12 @@ function Homescreen() {
             </div>
             <Box className="mainContainer" component="main" sx={{ p: 0 }}></Box>
             <div className="videoContainer">
-                <video width="100%" className="video" autoPlay muted loop>
+                {/* <video width="100%" className="video" autoPlay muted loop>
                     <source
                         src={videoSrc}
                         type="video/mp4"
                     />
-                </video>
+                </video> */}
             </div>
             <div className='center-dropdown'>
                 <Container>

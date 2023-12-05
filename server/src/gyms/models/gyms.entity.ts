@@ -15,10 +15,10 @@ export class Gym {
     @Column({ unique: true })
     address: string;
 
-    @Column()
+    @Column({ unique: true })
     latitude: number;
 
-    @Column()
+    @Column({ unique: true })
     longitude: number;
 
     @Column()
@@ -36,7 +36,7 @@ export class Gym {
     @Column()
     closing: Date;
 
-    @Column()
+    @Column({ nullable: true})
     rating: number;
 
     @Column()

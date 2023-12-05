@@ -8,7 +8,24 @@ export class GymsService {
     constructor(@InjectRepository(Gym) private readonly gymRepository: Repository<Gym>) { }
 
     public async create(data) {
-        const result = await this.gymRepository.save(data);
+
+        const gymObj = {
+            name: data.name,
+            description: data.description,
+            address: data.address,
+            latitude: data.latitude,
+            longitude: data.longitude,
+            is_active: data.is_active,
+            basic_plan: data.basic_plan,
+            premium_plan: data.premium_plan,
+            area: data.area,
+            category: data.category,
+            opening: new Date(),
+            closing: new Date(),
+            image: data.file,
+        }
+
+        const result = await this.gymRepository.save(gymObj);
         return result;
     }
 
