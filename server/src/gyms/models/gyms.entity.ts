@@ -36,7 +36,7 @@ export class Gym {
     @Column()
     closing: Date;
 
-    @Column({ nullable: true})
+    @Column({ nullable: true })
     rating: number;
 
     @Column()

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useCategoryContext } from "../../../Context/Category";
-import EditModal from '../CategoryEditModal/CategoryEditModal';
+import EditModal from '../GymEditModal/CategoryEditModal';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 

@@ -8,7 +8,7 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import moment from "moment";
+// import moment from "moment";
 
 const style = {
     position: 'absolute',
@@ -49,7 +49,7 @@ const GymModal = (props) => {
     }
 
     const handleSubmit = async (values) => {
-        console.log("handleSubmit-----", values);
+        //console.log("handleSubmit-----", values);
         const formData = new FormData();
         formData.append('name', values.name);
         formData.append('description', values.description);
@@ -64,8 +64,7 @@ const GymModal = (props) => {
         formData.append('opening', values.opening);
         formData.append('closing', values.closing);
         formData.append('file', values.file[0].name);
-        const result = await create_gym(formData);
-        // console.log("handleSubmit-----", result);
+        await create_gym(formData);
         return;
     };
     return (
