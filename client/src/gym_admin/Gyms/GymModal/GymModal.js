@@ -63,7 +63,7 @@ const GymModal = (props) => {
         formData.append('category', values.category);
         formData.append('opening', values.opening);
         formData.append('closing', values.closing);
-        formData.append('file', values.file[0].name);
+        formData.append('file', values.file);
         await create_gym(formData);
         return;
     };
@@ -75,7 +75,7 @@ const GymModal = (props) => {
             aria-describedby="parent-modal-description"
         >
             <Box sx={{ ...style, width: 400 }}>
-                <h2 id="parent-modal-title">Create Gym</h2>
+                {/* <h2 id="parent-modal-title">Create Gym</h2> */}
                 <Box
                     sx={{
                         marginTop: 8,

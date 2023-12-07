@@ -70,7 +70,7 @@ const GymDataTable = () => {
                                             <TableCell>{el.premium_plan == false ? "false" : "true"}</TableCell>
                                             <TableCell>{el.opening}</TableCell>
                                             <TableCell>{el.closing}</TableCell>
-                                            <TableCell>{<img src={el.image} />}</TableCell>
+                                            <TableCell>{<img src={`http://localhost:3001/${el.image}`} />}</TableCell>
                                             <TableCell>
                                                 <Button variant="contained" startIcon={<EditIcon />} onClick={() => { handleUpdate(el.id) }}>
                                                     Edit
