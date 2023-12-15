@@ -21,9 +21,9 @@ const GymProvider = (props) => {
         }
     }
 
-    const get_gyms = async (data) => {
+    const get_gyms = async () => {
         try {
-            const result = await getGyms(data);
+            const result = await getGyms();
             if (result.status === 200) {
                 setGyms(result.data);
             }

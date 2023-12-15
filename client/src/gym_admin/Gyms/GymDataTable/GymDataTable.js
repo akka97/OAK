@@ -58,7 +58,10 @@ const GymDataTable = () => {
 
                             {
                                 gyms.map((el, index) => {
-                                    console.log("gyms----", el.premium_plan);
+                                    //console.log("el----", el.images[0]);
+                                    el.images.map((img) => {
+                                        console.log("el----", img);
+                                    })
                                     return (
                                         <TableRow hover role="checkbox" tabIndex={-1} key={el.id}>
 
@@ -66,11 +69,16 @@ const GymDataTable = () => {
                                             <TableCell>{el.name}</TableCell>
                                             <TableCell>{el.description}</TableCell>
                                             <TableCell>{el.address}</TableCell>
-                                            <TableCell>{el.basic_plan == false ? "false" : "true"}</TableCell>
-                                            <TableCell>{el.premium_plan == false ? "false" : "true"}</TableCell>
+                                            <TableCell>{el.basic_plan === false ? "false" : "true"}</TableCell>
+                                            <TableCell>{el.premium_plan === false ? "false" : "true"}</TableCell>
                                             <TableCell>{el.opening}</TableCell>
                                             <TableCell>{el.closing}</TableCell>
-                                            <TableCell>{<img src={`http://localhost:3001/${el.image}`} />}</TableCell>
+                                            {
+                                                el.images.map((img) => {
+                                                    return <TableCell>{<img src={`http://localhost:3000/api/gyms/images/${img}`} width={"150px"}/>}</TableCell>
+                                                })
+                                            }
+
                                             <TableCell>
                                                 <Button variant="contained" startIcon={<EditIcon />} onClick={() => { handleUpdate(el.id) }}>
                                                     Edit
@@ -99,7 +107,7 @@ const GymDataTable = () => {
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
-            </Paper>
+            </Paper >
             <EditModal open={open} setOpen={setOpen} id={id} />
         </>
     );

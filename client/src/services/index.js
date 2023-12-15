@@ -59,8 +59,12 @@ const createGym = async (data) => {
 
 }
 
-const getGyms = async (data) => {
-    return axios.get("http://localhost:3000/api/gyms", data);
+const getGyms = async () => {
+    return axios.get("http://localhost:3000/api/gyms", {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
 }
 
 const updateGym = async (id, data) => {

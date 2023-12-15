@@ -7,8 +7,7 @@ import { Repository } from 'typeorm';
 export class GymsService {
     constructor(@InjectRepository(Gym) private readonly gymRepository: Repository<Gym>) { }
 
-    public async create(data) {
-
+    public async create(data, file_path) {
         const gymObj = {
             name: data.name,
             description: data.description,
@@ -22,7 +21,7 @@ export class GymsService {
             category: data.category,
             opening: new Date(),
             closing: new Date(),
-            image: data.file,
+            images: file_path,
         }
 
         const result = await this.gymRepository.save(gymObj);

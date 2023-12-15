@@ -53,7 +53,7 @@ export const validationSchema = yup.object({
             .nullable()
             .test('fileSize', 'is out of range', value => {
                 // console.log("value-----", value);
-                return true;
+                return value;
             })
             .required("Duhet te ngarkosh nje imazh"),
 });

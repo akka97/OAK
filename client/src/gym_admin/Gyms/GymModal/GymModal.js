@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useCategoryContext } from "../../../Context/Category";
 import { useGymContext } from "../../../Context/Gym";
 import { useAreaContext } from "../../../Context/Area";
@@ -8,7 +9,6 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-// import moment from "moment";
 
 const style = {
     position: 'absolute',
@@ -27,6 +27,7 @@ const GymModal = (props) => {
     const { create_gym } = useGymContext();
     const { categories } = useCategoryContext();
     const { areas } = useAreaContext();
+    const [images, setImages] = useState([]);
 
     const handleClose = () => {
         props.setOpen(false);
@@ -41,15 +42,14 @@ const GymModal = (props) => {
         is_active: false,
         basic_plan: false,
         premium_plan: false,
-        area: 0,
-        category: 0,
+        area: 5,
+        category: 5,
         opening: "",
         closing: "",
         file: null,
     }
 
     const handleSubmit = async (values) => {
-        //console.log("handleSubmit-----", values);
         const formData = new FormData();
         formData.append('name', values.name);
         formData.append('description', values.description);
@@ -63,7 +63,16 @@ const GymModal = (props) => {
         formData.append('category', values.category);
         formData.append('opening', values.opening);
         formData.append('closing', values.closing);
-        formData.append('file', values.file);
+        // formData.append('file', values.file[0]);
+        // formData.append('file', values.file[1]);
+        console.log("images---", values.file);
+        Object.values(values.file).map((el, i) => {
+            console.log('el-----', el);
+            formData.append('file', values.file[i]);
+        });
+        // array.from(values.file).foreach(el => {
+        //     console.log('el-----', el);
+        // })
         await create_gym(formData);
         return;
     };
@@ -218,6 +227,7 @@ const GymModal = (props) => {
                                                 variant="outlined"
                                                 name="category"
                                                 type="number"
+                                                value={values.category}
                                                 as={Select}
                                                 error={Boolean(errors.category) && Boolean(touched.category)}
                                                 helperText={Boolean(touched.category) && errors.category}
@@ -240,6 +250,7 @@ const GymModal = (props) => {
                                                 variant="outlined"
                                                 name="area"
                                                 type="number"
+                                                value={values.area}
                                                 as={Select}
                                                 error={Boolean(errors.area) && Boolean(touched.area)}
                                                 helperText={Boolean(touched.area) && errors.area}
@@ -264,8 +275,8 @@ const GymModal = (props) => {
                                                     touched={touched.file}
                                                     style={{ display: "flex" }}
                                                     onChange={(event) => {
-                                                        console.log("event.target.files", event.target.files);
                                                         setFieldValue("file", event.target.files);
+                                                        //setImages(event.target.files);
                                                     }}
                                                 />
                                                 {errors.file ? errors.file : ""}

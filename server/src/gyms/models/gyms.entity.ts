@@ -39,7 +39,6 @@ export class Gym {
     @Column({ nullable: true })
     rating: number;
 
-    @Column()
-    image: string;
-
+    @Column('json', { nullable: true })
+    images: object[];
 }
