@@ -9,7 +9,7 @@ const AuthProvider = (props) => {
     const [action, setAction] = useState(false);
 
     useEffect(() => {
-        console.log("useEffect--based on action--dependency--");
+        // console.log("useEffect--auth");
         checkAuthUser();
     }, [action]);
 
@@ -43,6 +43,10 @@ const AuthProvider = (props) => {
             }
             return result;
         } catch (error) {
+            setAuthUser({ 
+                message: error.response.data.message,
+                status: error.response.data.statusCode
+            })
             return error;
         }
     }

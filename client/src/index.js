@@ -6,7 +6,7 @@ import './index.css';
 import { AuthProvider } from "./Context/Auth";
 import { AreaProvider } from "./Context/Area";
 import { CategoryProvider } from './Context/Category';
-import {GymProvider} from "./Context/Gym";
+import { GymProvider } from "./Context/Gym";
 import { UserProvider } from "./Context/User";
 import reportWebVitals from './reportWebVitals';
 import NavScrollExample from './components/homescreen/Homescreen';

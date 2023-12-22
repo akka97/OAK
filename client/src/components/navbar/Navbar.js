@@ -14,10 +14,15 @@ import "./Navbar.css";
 function NavScrollExample() {
     const { logoutUser, authUser } = useAuthContext();
 
-    const [status, setStatus] = useState(false);
+    const [login, setLogin] = useState(false);
+    const [register, setRegister] = useState(false);
 
-    const openModal = () => {
-        setStatus(true);
+    const openLogin = () => {
+        setLogin(true);
+    }
+
+    const openRegister = () => {
+        setRegister(true);
     }
 
     const handleLogout = async () => {
@@ -44,16 +49,16 @@ function NavScrollExample() {
                                 </>
                                 :
                                 <>
-                                    <Nav.Link onClick={openModal}>Register | </Nav.Link>
-                                    <Nav.Link onClick={openModal}>Login</Nav.Link>
+                                    <Nav.Link onClick={openRegister}>Register | </Nav.Link>
+                                    <Nav.Link onClick={openLogin}>Login</Nav.Link>
                                 </>
                             }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar >
-            <RegisterForm show={status} setShow={setStatus} />
-            <LoginForm show={status} setShow={setStatus} />
+            <RegisterForm show={register} setShow={setRegister} />
+            <LoginForm show={login} setShow={setLogin} />
         </>
     )
 }
