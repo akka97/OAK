@@ -37,7 +37,6 @@ export default function App() {
                     <Route path="gym/:id" element={<GymCard />} />
                     <Route path="admin/gyms" element={<Gyms />} />
                     <Route path="admin/users" element={<Users />} />
-
                     <Route path="admin/categories" element={<Category />} />
                     <Route path="admin/areas" element={<Areas />} />
                   </Route>
